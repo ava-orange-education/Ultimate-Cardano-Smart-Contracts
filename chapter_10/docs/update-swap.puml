@@ -1,0 +1,26 @@
+@startuml update-swap
+
+skin rose
+header Precondition: Wallet Connected
+actor User
+User -> Browser : Update Swap
+Browser -> Wallet : Get UTXOs
+Wallet --> Browser : UTXOs
+Browser -> App : Get Swap UTXO
+App -> Blockfrost : Get Swap UTXO
+Blockfrost --> App : Swap UTXO
+App --> Browser : Swap UTXO
+Browser -> Browser : Build Tx [Update Swap]
+Browser -> Wallet: Sign Tx
+Wallet -> User: Sign Tx
+User --> Wallet: Signature
+Wallet --> Browser : Witness
+Browser -> App : Signed Tx
+App -> Blockfrost : Submit Tx
+Blockfrost -> Blockchain : Submit Tx
+Blockfrost --> App : Success (TxId)
+App --> Browser : Success (TxId)
+Browser --> User : Success (TxId)
+
+   
+@enduml

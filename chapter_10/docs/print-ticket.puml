@@ -1,0 +1,23 @@
+@startuml print-ticket
+
+skin rose
+header Precondition: Wallet Connected
+actor User
+User -> Browser : Print Ticket
+Browser -> Wallet : Get UTXOs
+Wallet --> Browser : UTXOs
+Browser -> Browser : Build Tx [Print Ticket]
+Browser -> Wallet: Sign Tx 
+Wallet -> User: Sign Tx
+User --> Wallet: Signature (Asset, Spending PKH)
+Wallet --> Browser : Witness
+Browser -> App : Signed Tx (Asset, Witness)
+App -> Blockfrost : Submit Tx
+Blockfrost -> Blockchain : Submit Tx
+Blockfrost --> App : Success (TxId)
+App -> DB : Update Asset with PKH
+App --> Browser : QR Code (Asset, Witness) +  Success (TxId)
+Browser --> User : QR Code (Asset, Witness) + Success (TxId)
+
+   
+@enduml

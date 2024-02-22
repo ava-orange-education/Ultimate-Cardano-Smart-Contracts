@@ -1,0 +1,41 @@
+minting ticket
+
+/*
+ The minting policy can either mint or burn an ticket
+ */
+ enum Redeemer { 
+    Mint 
+    Burn
+}
+
+const TX_ID: ByteArray = #abc123
+const txId: TxId = TxId::new(TX_ID)
+const TX_IDX: Int = 0
+const outputId: TxOutputId = TxOutputId::new(txId, TX_IDX)
+const TN: String = ""
+const QTY: Int = 1
+
+func main(redeemer: Redeemer, ctx: ScriptContext) -> Bool {
+    tx: Tx = ctx.tx;
+    mph: MintingPolicyHash = ctx.get_current_minting_policy_hash();
+    tt_assetclass: AssetClass = AssetClass::new(
+        mph, 
+        TN.encode_utf8()
+    );
+    value_minted: Value = tx.minted;
+    redeemer.switch {
+        Mint => {
+            // Check that contract parameter UTXO is included in the inputs
+            // and that the minted amount is equal to the quanty given
+            (value_minted == Value::new(tt_assetclass, QTY)).trace("NFT1: ") &&
+            tx.inputs.any((input: TxInput) -> Bool {
+                                (input.output_id == outputId).trace("NFT2: ")
+                                }
+                            ) 
+        },
+        Burn => {
+            // Allow any quantity of the minting policy to be burned in a transaction
+            value_minted.contains_policy(mph).trace("NFT3: ")
+        }
+    } 
+}

@@ -1,0 +1,77 @@
+{
+  "preamble": {
+    "title": "aiken-lang/contracts",
+    "description": "Aiken contract for vesting demo 'aiken-lang/contracts'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.23-alpha+8584adc"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "vesting.vesting",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Redeemer"
+        }
+      },
+      "compiledCode": "59024501000032323232323232323232222323253330083253330093370e90000008a99980499199119198008008019129998090008a501323253330103371e00400a29444cc010010004c054008dd718098009bac300f30103010301030103010301030103010300830013008005375c6002601000e4601e002294454cc029241446c6973742e68617328636f6e746578742e7472616e73616374696f6e2e65787472615f7369676e61746f726965732c20646174756d2e6f776e657229203f2046616c73650014a026464a66601666e3c00522010c48656c6c6f20576f726c64210014a22a66018921166d7367203d3d206d657373616765203f2046616c73650014a06eb8c03c004c01c014c01c01052615330094911856616c696461746f722072657475726e65642066616c73650013656323253330093370e90000008a99980698038028a4c2a660140042c2a66601266e1d2002001132533300e001153300b00316132533300f3011002149854cc03001058c94cccccc04800454cc0300105854cc0300105854cc0300105854cc030010584dd7000980780098038028a998050010b180380224811272656465656d65723a2052656465656d657200323253330083370e900000089929998068008a998050018b099299980718080010a4c2a660160082c64a6666660220022a660160082c2a660160082c2a660160082c2a660160082c26eb8004c038004c01801454cc02400858c0180112410c646174756d3a20446174756d00230063754002460086ea80055cd2b9c5573aaae7955cfaba15744ae901",
+      "hash": "f291bf00a69a508b818de2b1fc296fe6c3ca333ea533a760b7062cda"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "vesting/Datum": {
+      "title": "Datum",
+      "description": "Create a datum with the owner PubKeyHash that will be included \n into each UTXO locked at this script address.",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "vesting/Redeemer": {
+      "title": "Redeemer",
+      "description": "The vesting contract can be either cancelled by the owner\n or claimed by the beneificiary",
+      "anyOf": [
+        {
+          "title": "Cancel",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Claim",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "title": "msg",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@startuml verify-ticket
+
+skin rose
+header Precondition: None
+actor User
+actor Event
+User -> Browser : Verify Ticket
+Browser -> App : Verify Ticket
+App -> Blockfrost : Query Reference Token
+Blockfrost --> App : Reference Token Datum
+App -> App : PKH is not present
+App --> Browser : Ticket OK
+Browser --> User : Ticket OK
+
+User -> Event : QR Code (Asset, Witness)
+Event -> App : Verify Ticket Ownership (Asset, Witness)
+App -> Blockfrost : Query Reference Token
+Blockfrost --> App : Reference Token Datum
+App -> App : Verify Signature (Asset, Witness) with PKH
+App -> DB : Mark Asset Used
+DB --> App : DB Update Success
+App --> Event: DB Update Success
+Event --> User : Allow Access
+   
+@enduml

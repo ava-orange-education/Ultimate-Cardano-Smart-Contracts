@@ -1,0 +1,19 @@
+@startuml wallet-register
+
+skin rose
+header Preconditions: None
+actor User
+User -> Browser : Connect Wallet
+Browser -> Wallet : CIP-30 Enable Wallet
+Wallet --> Browser : CIP-30 WalletAPI
+Browser -> Wallet: Sign Data with Stake Key
+Wallet -> User: Sign Data With Stake Key
+User --> Wallet: Signature
+Wallet --> Browser : Witness Set
+Browser -> App : Stake Key Witness
+App -> App : Verify Stake Key Witness
+App -> DB : Update DB with Stake Key
+App --> Browser : Wallet Verified Success
+Browser --> User : Wallet Verified Success
+
+@enduml

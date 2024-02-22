@@ -1,0 +1,17 @@
+@startuml wallet-register
+
+skin rose
+header Preconditions: None
+actor User
+User -> Browser : Connect Wallet
+Browser -> Wallet : CIP-30 Enable Wallet
+Wallet --> Browser : CIP-30 WalletAPI
+Browser -> Wallet: Get Stake Key
+Wallet --> Browser: Stake Key
+Browser -> App : Get Events associated with Stake Key
+App -> DB : Get Events associated with Stake Key
+DB --> App : Event Ticket List
+App --> Browser : Event Ticket List
+Browser --> User : Event Ticket List
+
+@enduml
