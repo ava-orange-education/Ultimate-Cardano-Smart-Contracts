@@ -90,8 +90,8 @@ export default async function lock (
             // Construct the output for the reference script
             const scriptOutput = new TxOutput(
               Address.fromHashes(compiledProgram.validatorHash),
-              new Value(BigInt(5_000_000)),
-              undefined,
+              new Value(BigInt(5_000_000)),     // dummy vaule
+              undefined,                        // no datum required
               compiledProgram
             );
 

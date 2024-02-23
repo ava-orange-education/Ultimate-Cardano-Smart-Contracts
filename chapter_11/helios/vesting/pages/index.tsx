@@ -13,21 +13,14 @@ import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 
 import {
-  Address,
   Cip30Wallet,
-  Datum,
   NetworkParams,
-  Program,
-  Value,
-  TxOutput,
-  Tx,
   WalletHelper} from "@hyperionbt/helios";
 
 import {
   network,
-  optimize
 } from '../contracts/config/settings';
-import { Network, NetworkName } from '../contracts/off-chain/types'
+import { NetworkName } from '../contracts/off-chain/types'
 
 import lock from '../contracts/off-chain/lock';
 import unlock from '../contracts/off-chain/unlock';
@@ -37,19 +30,10 @@ import cancel from '../contracts/off-chain/cancel';
 export async function getServerSideProps() {
 
   try {
-    //Find the absolute path of the contracts directory
-    //const contractDirectory = path.join(process.cwd(), 'contracts');
-    
-    // Validator script
-    //const blueprintFile = await fs.readFile(contractDirectory + '/plutus.json', 'utf8');
-    
-    const contractDirectory = path.join(process.cwd(), 'contracts')
-    //const blueprintFile = await fs.readFile(contractDirectory + '/plutus.json', 'utf8');
-    //const blueprintString = blueprintFile.toString(); 
-    const validatorScript = await fs.readFile(contractDirectory + '/validators/vesting.hl', 'utf8');
-    //const validatorProgram = Program.new(validatorScript);
 
-    //const blueprintString = blueprintFile.toString(); 
+    // Validator script
+    const contractDirectory = path.join(process.cwd(), 'contracts')
+    const validatorScript = await fs.readFile(contractDirectory + '/validators/vesting.hl', 'utf8');
     return { props: { script: validatorScript.toString() } }
   
   } catch (err) {
