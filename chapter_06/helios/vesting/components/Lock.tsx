@@ -1,4 +1,4 @@
-const lock = ({ onLock } : any) => {
+const Lock = ({ onLock } : any) => {
 
     const onSubmit = (e : any) => {
         
@@ -18,4 +18,4 @@ const lock = ({ onLock } : any) => {
     )
 }
 
-export default lock
+export default Lock

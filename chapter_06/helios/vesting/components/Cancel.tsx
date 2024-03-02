@@ -1,4 +1,4 @@
-const cancel = ({ onCancel } : any) => {
+const Cancel = ({ onCancel } : any) => {
 
     const onSubmit = (e : any) => {
         
@@ -18,4 +18,4 @@ const cancel = ({ onCancel } : any) => {
     )
 }
 
-export default cancel
+export default Cancel

@@ -3,12 +3,14 @@ import Head from 'next/head'
 import { useState, useEffect } from "react";
 
 import Cancel from '../components/Cancel';
-import VestingValidator from '../contracts/vesting.hl';
-import { getNetworkParams,
-         getVestingUtxo } from '../common/network';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Lock from '../components/Lock';
+import { 
+  getNetworkParams,
+  getVestingUtxo 
+} from '../common/network';
 import Unlock from '../components/Unlock';
+import VestingValidator from '../contracts/vesting.hl';
 import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 
@@ -34,48 +36,47 @@ const Home: NextPage = () => {
   const [tx, setTx] = useState({ txId : '' });
   const [walletAPI, setWalletAPI] = useState<undefined | any>(undefined);
   const [walletInfo, setWalletInfo] = useState({ 
-      balance : '',
-      addr : ''
+      balance : ''
     });
 
   useEffect(() => {
+
+    // Calculate the wallet balance
+    const getWalletBalance = async () => {
+      try {
+        const cip30WalletAPI = new Cip30Wallet(walletAPI);
+        const walletHelper = new WalletHelper(cip30WalletAPI);
+        const balanceAmountValue = await walletHelper.calcBalance();
+        
+        // Extract the balance amount in lovelace
+        const balanceAmount = balanceAmountValue.lovelace;
+    
+        // Format the balance as a locale string
+        return balanceAmount.toLocaleString();
+      
+      } catch (error) {
+        console.error('Error in getWalletBalance:', error);
+        throw new Error('Failed to retrieve wallet balance. Please try again later.');
+      }
+    };
+    
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
             const _balance = await getWalletBalance() as string;
             setWalletInfo({
-              ...walletInfo,
               balance : _balance
             });
         } else {
           // Zero out wallet info if no walletAPI is present
           setWalletInfo({
-            balance : '',
-            addr : ''
+            balance : ''
           })
         }
     }
     updateWalletInfo();
   }, [walletAPI]);
 
-  // Calculate the wallet balance
-  const getWalletBalance = async () => {
-    try {
-      const cip30WalletAPI = new Cip30Wallet(walletAPI);
-      const walletHelper = new WalletHelper(cip30WalletAPI);
-      const balanceAmountValue = await walletHelper.calcBalance();
-      
-      // Extract the balance amount in lovelace
-      const balanceAmount = balanceAmountValue.lovelace;
-  
-      // Format the balance as a locale string
-      return balanceAmount.toLocaleString();
-    
-    } catch (error) {
-      console.error('Error in getWalletBalance:', error);
-      throw new Error('Failed to retrieve wallet balance. Please try again later.');
-    }
-  };
 
   const lock = async () => {
 

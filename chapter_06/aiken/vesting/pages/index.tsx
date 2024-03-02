@@ -25,6 +25,10 @@ const network = "Preprod";
 const blockfrostAPI = process.env.NEXT_PUBLIC_BLOCKFROST_API as string;
 const blockfrostAPIKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
 
+if (!blockfrostAPI && !blockfrostAPIKey){
+  throw console.error("NEXT_PUBLIC_BLOCKFROST_API or NEXT_PUBLIC_BLOCKFROST_API_KEY not set");
+}
+
 // Create lucid object and connect it to a blockfrost provider
 const lucid = await Lucid.new(
   new Blockfrost(blockfrostAPI, blockfrostAPIKey),
@@ -55,47 +59,44 @@ const Home: NextPage = (props: any) => {
   const [tx, setTx] = useState({ txId : '' });
   const [walletAPI, setWalletAPI] = useState<undefined | any>(undefined);
   const [walletInfo, setWalletInfo] = useState({ 
-      balance : '',
-      addr : ''
+      balance : ''
     });
 
   useEffect(() => {
+
+    // Calculate the wallet balance
+    const getWalletBalance = async () => {
+      try {
+
+        // Get the wallet balance from the wallet API
+        const balanceCBORHex = await walletAPI.getBalance();
+        
+        // Extract the balance amount in lovelace
+        const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
+        const walletBalance : BigInt = BigInt(balanceAmount.to_str());
+        return walletBalance.toLocaleString();
+      
+      } catch (error) {
+        console.error('Error in getWalletBalance:', error);
+        throw new Error('Failed to retrieve wallet balance. Please try again later.');
+      }
+    };
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
-            const _balance = await getWalletBalance() as string;
+            const balance = await getWalletBalance() as string;
             setWalletInfo({
-              ...walletInfo,
-              balance : _balance
+              balance : balance
             });
         } else {
           // Zero out wallet info if no walletAPI is present
           setWalletInfo({
-            balance : '',
-            addr : ''
+            balance : ''
           })
         }
     }
     updateWalletInfo();
   }, [walletAPI]);
-
-  // Calculate the wallet balance
-  const getWalletBalance = async () => {
-    try {
-
-      // Get the wallet balance from the wallet API
-      const balanceCBORHex = await walletAPI.getBalance();
-      
-      // Extract the balance amount in lovelace
-      const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
-      const walletBalance : BigInt = BigInt(balanceAmount.to_str());
-      return walletBalance.toLocaleString();
-    
-    } catch (error) {
-      console.error('Error in getWalletBalance:', error);
-      throw new Error('Failed to retrieve wallet balance. Please try again later.');
-    }
-  };
 
   // Read the validator script from the filesystem
   async function readValidator(): Promise<SpendingValidator> {

@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import Head from 'next/head'
 import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
+
 import LoadingSpinner from '../components/LoadingSpinner';
 import Lock from '../components/Lock';
 import path from 'path';
@@ -20,6 +21,17 @@ import {
 const network = "Preprod";
 const blockfrostAPI = process.env.NEXT_PUBLIC_BLOCKFROST_API as string;
 const blockfrostAPIKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
+
+if (!blockfrostAPI && !blockfrostAPIKey){
+  throw console.error("NEXT_PUBLIC_BLOCKFROST_API or NEXT_PUBLIC_BLOCKFROST_API_KEY not set");
+}
+
+// Creaet lucid object and connect it to a 
+// blockfrost provider
+const lucid = await Lucid.new(
+  new Blockfrost(blockfrostAPI, blockfrostAPIKey),
+  network,
+);
 
 export async function getServerSideProps() {
 
@@ -46,47 +58,45 @@ const Home: NextPage = (props: any) => {
   const [tx, setTx] = useState({ txId : '' });
   const [walletAPI, setWalletAPI] = useState<undefined | any>(undefined);
   const [walletInfo, setWalletInfo] = useState({ 
-      balance : '',
-      addr : ''
+      balance : ''
     });
 
   useEffect(() => {
+
+    // Calculate the wallet balance
+    const getWalletBalance = async () => {
+      try {
+
+        // Get the wallet balance from the wallet API
+        const balanceCBORHex = await walletAPI.getBalance();
+        
+        // Extract the balance amount in lovelace
+        const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
+        const walletBalance : BigInt = BigInt(balanceAmount.to_str());
+        return walletBalance.toLocaleString();
+      
+      } catch (error) {
+        console.error('Error in getWalletBalance:', error);
+        throw new Error('Failed to retrieve wallet balance. Please try again later.');
+      }
+    };
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
             const _balance = await getWalletBalance() as string;
             setWalletInfo({
-              ...walletInfo,
               balance : _balance
             });
         } else {
           // Zero out wallet info if no walletAPI is present
           setWalletInfo({
-            balance : '',
-            addr : ''
+            balance : ''
           })
         }
     }
     updateWalletInfo();
   }, [walletAPI]);
 
-  // Calculate the wallet balance
-  const getWalletBalance = async () => {
-    try {
-
-      // Get the wallet balance from the wallet API
-      const balanceCBORHex = await walletAPI.getBalance();
-      
-      // Extract the balance amount in lovelace
-      const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
-      const walletBalance : BigInt = BigInt(balanceAmount.to_str());
-      return walletBalance.toLocaleString();
-    
-    } catch (error) {
-      console.error('Error in getWalletBalance:', error);
-      throw new Error('Failed to retrieve wallet balance. Please try again later.');
-    }
-  };
 
   // Read the validator script from the filesystem
   async function readValidator(): Promise<SpendingValidator> {
@@ -105,12 +115,6 @@ const Home: NextPage = (props: any) => {
       // Lock 2 Ada at the script address
       const lovelace = BigInt(2_000_000);
 
-      // Creaet lucid object and connect it to a 
-      // blockfrost provider
-      const lucid = await Lucid.new(
-        new Blockfrost(blockfrostAPI, blockfrostAPIKey),
-        network,
-      );
       lucid.selectWallet(walletAPI);
 
       // Get the pkh from the wallet

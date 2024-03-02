@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 
-const unlock = ({ onUnlock } : any) => {
+const Unlock = ({ onUnlock } : any) => {
     const [message, setMessage] = useState('');
     const onSubmit = (e : any) => {  
         e.preventDefault() // prevent full page refresh
@@ -35,4 +35,4 @@ const unlock = ({ onUnlock } : any) => {
     )
 }
 
-export default unlock
+export default Unlock

@@ -11,7 +11,10 @@ export default async function handler(
   res: NextApiResponse ) {
 
     const getVestingUtxo = async (vestingValidatorAddr: string): Promise<TxInput> => {
-        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
+        const apiKey = process.env.BLOCKFROST_API_KEY as string;
+        if (!apiKey) {
+            throw console.error("BLOCKFROST_API_KEY not set");
+        }
         const blockfrostAPI = new BlockfrostV0(network, apiKey);
         const vestingUTXOs = await blockfrostAPI.getUtxos(
                                         Address.fromBech32(vestingValidatorAddr));     
