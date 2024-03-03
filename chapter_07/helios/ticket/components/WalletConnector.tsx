@@ -23,8 +23,8 @@ const walletDetails: WalletDetails = {
     label: "Eternl",
   },
   nami: {
-    api: "nami",
-    label: "Nami",
+    api: "lace",
+    label: "Lace",
   }
   // Add more wallets if required
 };

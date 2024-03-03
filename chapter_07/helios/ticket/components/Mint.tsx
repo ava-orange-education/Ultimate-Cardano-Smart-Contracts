@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 
 const Mint = ({ onMint } : any) => {
 
@@ -6,15 +6,7 @@ const Mint = ({ onMint } : any) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
-    const [qty, setQty] = useState(1);
-
-    const handleTicketQty = (event: ChangeEvent<HTMLInputElement>) => {
-        const inputValue = event.target.value;
-        // Check if the input is greater or equal to 1
-        if (Number(inputValue) >= 1) {
-          setQty(Number(inputValue));
-        }
-      };
+    const [qty, setQty] = useState('');
 
     const onSubmit = (e : any) => {  
         e.preventDefault() // prevent full page refresh
@@ -84,7 +76,7 @@ const Mint = ({ onMint } : any) => {
                         id="qty"
                         placeholder="Number of tickets to mint"
                         value={qty}
-                        onChange={(e) => handleTicketQty(e)}
+                        onChange={(e) => setQty(e.target.value)}
                     />
                 </label>              
         </div>

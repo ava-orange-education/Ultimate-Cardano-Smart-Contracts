@@ -34,7 +34,7 @@ validator(token_name: ByteArray, qty: Int, utxo_ref: OutputReference) {
         amount == qty && asset_name == token_name
       }
       // Allow burning of any number of tokens per transaction
-      Burn -> asset_name == token_name
+      Burn -> amount < 0 && asset_name == token_name
     }
   }
 }
