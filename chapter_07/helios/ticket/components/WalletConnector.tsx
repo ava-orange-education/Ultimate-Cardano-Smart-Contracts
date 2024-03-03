@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-/*
+
 declare global {
   interface Window {
     cardano: any;
   }
 }
-*/
 
 interface WalletConnectorProps {
     onWalletAPI: (walletAPI: any) => void;
@@ -16,34 +15,26 @@ interface WalletDetails {
       api: string;
       label: string;
     };
+}
+  
+const walletDetails: WalletDetails = {
+  eternl: {
+    api: "eternl",
+    label: "Eternl",
+  },
+  nami: {
+    api: "nami",
+    label: "Nami",
   }
-  
-  const walletDetails: WalletDetails = {
-    eternl: {
-      api: "eternl",
-      label: "Eternl",
-    },
-    lace: {
-      api: "lace",
-      label: "Lace",
-    }
-    // Add more wallets if required
-  };
-  
-  const WalletConnector: React.FC<WalletConnectorProps> = ({ onWalletAPI }) => {
-    const [selectedWallet, setSelectedWallet] = useState<string | undefined>(undefined);
-    const [walletIsEnabled, setWalletIsEnabled] = useState(false);
-  
-    useEffect(() => {
-      const checkWallet = async () => {
-        if (selectedWallet && (await checkIfWalletFound())) {
-          setWalletIsEnabled(await enableWallet(selectedWallet));
-        }
-      };
-      checkWallet();
-    }, [selectedWallet]);
-  
-    const checkIfWalletFound = async () => {
+  // Add more wallets if required
+};
+
+const WalletConnector: React.FC<WalletConnectorProps> = ({ onWalletAPI }) => {
+  const [selectedWallet, setSelectedWallet] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+
+      const checkIfWalletFound = async () => {
         if (selectedWallet !== undefined) {  
             const walletApi = walletDetails[selectedWallet]?.api;
             if (window?.cardano?.[walletApi]) {
@@ -52,7 +43,6 @@ interface WalletDetails {
             }
         }
         // Set false by default
-        setWalletIsEnabled(false);
         onWalletAPI(undefined);
         console.error('Wallet not found'); 
         return false;
@@ -71,29 +61,36 @@ interface WalletDetails {
       }
       return false;
     };
-  
-    const handleWalletSelect = (obj: React.ChangeEvent<HTMLInputElement>) => {
-      setSelectedWallet(obj.target.value);
+
+    const checkWallet = async () => {
+      if (selectedWallet && (await checkIfWalletFound())) {
+        await enableWallet(selectedWallet);
+      }
     };
-  
-    return (
-      <div className="p-4 border">
-        {Object.keys(walletDetails).map((walletKey) => (
-          <p className="border border-gray-400 p-2 rounded mb-2" key={walletKey}>
-            <label className="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="wallet"
-                value={walletKey}
-                onChange={handleWalletSelect}
-              />
-              <span>{walletDetails[walletKey].label}</span>
-            </label>
-          </p>
-        ))}
-      </div>
-    );
+    checkWallet();
+  }, [selectedWallet, onWalletAPI]);
+
+  const handleWalletSelect = (obj: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedWallet(obj.target.value);
   };
-    
+
+  return (
+    <div className="p-4 border">
+      {Object.keys(walletDetails).map((walletKey) => (
+        <p className="border border-gray-400 p-2 rounded mb-2" key={walletKey}>
+          <label className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name="wallet"
+              value={walletKey}
+              onChange={handleWalletSelect}
+            />
+            <span>{walletDetails[walletKey].label}</span>
+          </label>
+        </p>
+      ))}
+    </div>
+  );
+};
 
 export default WalletConnector;

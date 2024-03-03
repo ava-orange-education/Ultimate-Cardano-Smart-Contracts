@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 
-const mint = ({ onMint } : any) => {
+const Mint = ({ onMint } : any) => {
 
     const [address, setAddress] = useState('');
     const [name, setName] = useState('');
@@ -98,4 +98,4 @@ const mint = ({ onMint } : any) => {
     )
 }
 
-export default mint
+export default Mint

@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
 
-declare global {
-  interface Window {
-    cardano: any;
-  }
-}
-
 interface WalletConnectorProps {
     onWalletAPI: (walletAPI: any) => void;
 }

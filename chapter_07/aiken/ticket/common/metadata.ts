@@ -34,17 +34,17 @@ function generateMetadata(
               {
                 "mediaType": "image/png",
                 "name": "Final",
-                "src": "ipfs://` + image +`"
+                "src": "`+ image +`"
               }
             ],
             "`+ tokenName +`": {
-            "image": "ipfs://` + image +`",
+            "image": "`+ image +`",
             "mediaType": "image/png",
             "name": "`+ tokenName +`",
             "description": "`+ description +`",
             "decimals": "0",
             "qty": "`+ qty +`",
-            "utxoId": "`+ utxoId + `",
+            "utxoId": "`+ utxoId +`",
             "utxoIdx": "`+ utxoIdx +`"
           }
         }

@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 
-const burn = ({ onBurn } : any) => {
+const Burn = ({ onBurn } : any) => {
 
     const [policyId, setAddress] = useState('');
     const [tokenName, setName] = useState('');
@@ -22,7 +22,7 @@ const burn = ({ onBurn } : any) => {
     return (
         <form onSubmit={onSubmit}>
         <div className="p-4 border">
-            <span>Policy ID</span>
+            <span>Minting Policy ID</span>
                 <label className="flex items-center space-x-2">
                     <input
                         type="text"
@@ -70,4 +70,4 @@ const burn = ({ onBurn } : any) => {
     )
 }
 
-export default burn
+export default Burn

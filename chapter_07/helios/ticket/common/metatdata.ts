@@ -31,21 +31,20 @@ export {
                                     ["designer", "Ada Lovelace"],
                                     ["name", tokenName],
                                     ["description", description],
-                                    ["image", "ipfs://" + image +""],
+                                    ["image", image],
                                     ["decimals", "0"],
                                     ["qty", qty.toString()],
                                     ["utxoId", utxoId],
                                     ["utxoIdx", utxoIdx.toString()],
                                     ["files", { "map": [["mediaType", "image/png"],
                                                         ["name", tokenName],
-                                                        ["src", "ipfs://" + image +""]]
+                                                        ["src", image]]
                                               }
                                     ]
                                   ]
                             }
                         ]]}
                     ]]}
-
 
     return metadata;
 };

@@ -27,6 +27,10 @@ const network = "Preprod";
 const blockfrostAPI = process.env.NEXT_PUBLIC_BLOCKFROST_API as string;
 const blockfrostAPIKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
 
+if (!blockfrostAPI && !blockfrostAPIKey){
+  throw console.error("NEXT_PUBLIC_BLOCKFROST_API or NEXT_PUBLIC_BLOCKFROST_API_KEY not set");
+}
+
 const lucid = await Lucid.new(
   new Blockfrost(blockfrostAPI, blockfrostAPIKey),
   network,

@@ -19,7 +19,7 @@ const WalletInfo = ({ walletInfo } : any) => {
           <table className="w-full">
             <thead>
               <tr>
-                <th className="text-left">Minting Policy Hash</th>
+                <th className="text-left">Minting Policy ID</th>
                 <th className="text-left">Token Name</th>
                 <th className="text-left">Token Quantity</th>
               </tr>

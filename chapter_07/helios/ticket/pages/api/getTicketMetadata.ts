@@ -11,10 +11,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse ) {
 
-    const getTicketMetadata = async (  ticketPolicyId: string,
-                                    ticketTokenName: string) : Promise<TicketInfo> => {
+    const getTicketMetadata = async ( ticketPolicyId: string,
+                                      ticketTokenName: string) : Promise<TicketInfo> => {
 
-        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
+        const apiKey = process.env.BLOCKFROST_API_KEY as string;
+        if (!apiKey) {
+          throw console.log("BLOCKFROST_API_KEY not set");
+        }
         const API = new BlockFrostAPI({
             projectId: apiKey
           });

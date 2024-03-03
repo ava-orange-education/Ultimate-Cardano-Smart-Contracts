@@ -42,6 +42,20 @@ const Home: NextPage = () => {
     });
 
   useEffect(() => {
+    // Calculate the wallet balance
+    const getWalletAddr = async () => {
+      
+      try {
+        const cip30WalletAPI = new Cip30Wallet(walletAPI);
+        const walletHelper = new WalletHelper(cip30WalletAPI);
+        const changeAddr = await walletHelper.baseAddress;
+        return changeAddr.toBech32();
+
+      } catch (error) {
+        console.error('Error in getWalletAddr:', error);
+        throw new Error('Failed to retrieve wallet pkh. Please try again later.');
+      }
+    };
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
@@ -62,20 +76,6 @@ const Home: NextPage = () => {
     }
     updateWalletInfo();
   }, [walletAPI]);
-
-  // Calculate the wallet balance
-  const getWalletAddr = async () => {
-    try {
-      const cip30WalletAPI = new Cip30Wallet(walletAPI);
-      const walletHelper = new WalletHelper(cip30WalletAPI);
-      const changeAddr = await walletHelper.baseAddress;
-      return changeAddr.toBech32();
-
-    } catch (error) {
-      console.error('Error in getWalletAddr:', error);
-      throw new Error('Failed to retrieve wallet pkh. Please try again later.');
-    }
-  };
 
   const mint = async (params: any) => {
 
