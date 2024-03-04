@@ -12,36 +12,34 @@ import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 
 import { 
-  Maestro,
   C, 
   Constr,
   Data,
   fromText,
+  Kupmios,
   Lucid,
   SpendingValidator } from "lucid-cardano"; 
 
 // Define the Cardano Network
-const network = "Preprod";
-const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
+const network = "Custom";
+//const KUPO_API = process.env.NEXT_PUBLIC_KUPO_API as string;
+//const OGMIOS_API = process.env.NEXT_PUBLIC_OGMIOS_API as string;
 
-if (!maestroAPIKey){
-  throw console.error("NEXT_PUBLIC_MAESTRO_API_KEY not set");
-}
+const KUPO_API = "http://localhost:1442";
+const OGMIOS_API = "ws://localhost:1337";
 
-
-// Create lucid object and connect it to the maestro provider
+// Create lucid object and connect it to a kupo + ogmios provider
 const lucid = await Lucid.new(
-  new Maestro({
-    network: network,
-    apiKey: maestroAPIKey,
-    turboSubmit: true
-  }),
+  new Kupmios(
+    KUPO_API, 
+    OGMIOS_API),
   network,
 );
 
 export async function getServerSideProps() {
 
   try {
+
     //Find the absolute path of the contracts directory
     const contractDirectory = path.join(process.cwd(), 'contracts');
     
@@ -88,9 +86,9 @@ const Home: NextPage = (props: any) => {
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
-            const balance = await getWalletBalance() as string;
+            const _balance = await getWalletBalance() as string;
             setWalletInfo({
-              balance : balance
+              balance : _balance
             });
         } else {
           // Zero out wallet info if no walletAPI is present
@@ -101,6 +99,8 @@ const Home: NextPage = (props: any) => {
     }
     updateWalletInfo();
   }, [walletAPI]);
+
+  
 
   // Read the validator script from the filesystem
   async function readValidator(): Promise<SpendingValidator> {
@@ -246,6 +246,11 @@ const Home: NextPage = (props: any) => {
     }
   }
 
+  const blockExplorerUrl = network === 'Custom' ?
+  "http://localhost:5173/transactions/" + tx.txId :
+  "https://"+network+".cexplorer.io/tx/" + tx.txId;
+
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <Head>
@@ -253,7 +258,6 @@ const Home: NextPage = (props: any) => {
         <meta name="description" content="Lucid Transaction Builder" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-  
       <main className="p-4">
         <h3 className="text-3xl font-semibold text-center mb-8">
           Lucid Transaction Builder
@@ -273,7 +277,7 @@ const Home: NextPage = (props: any) => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={blockExplorerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"
@@ -304,7 +308,6 @@ const Home: NextPage = (props: any) => {
             <LoadingSpinner /> 
           </div> 
         )}
-        
       </main>
       <footer>
         {/* Footer content */}

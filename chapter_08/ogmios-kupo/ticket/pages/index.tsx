@@ -28,6 +28,10 @@ const network = "Preprod";
 const KUPO_API = process.env.NEXT_PUBLIC_KUPO_API as string;
 const OGMIOS_API = process.env.NEXT_PUBLIC_OGMIOS_API as string;
 
+if (!KUPO_API && !OGMIOS_API) {
+  throw console.error("NEXT_PUBLIC_KUPO_API or NEXT_PUBLIC_OGMIOS_API not set");
+}
+
 // Create lucid object and connect it to the kupo + ogmios provider
 const lucid = await Lucid.new(
   new Kupmios(
@@ -67,14 +71,46 @@ const Home: NextPage = (props: any) => {
     });
 
   useEffect(() => {
+
+    const getWalletInfo = async (): Promise<WalletInfoDetails>  => {
+
+      const utxos = await lucid.wallet.getUtxos();
+      let balance = [] as any;
+      let index = 0;
+      let lovelace = 0n;
+      
+      utxos.forEach((utxo) =>
+        Object.keys(utxo.assets).forEach(key => {
+            if (key.length < 57) {
+              lovelace += utxo.assets[key];
+            } else {
+              balance.push({  mph: key.slice(0,56),
+                              tn: toText(key.slice(56)),
+                              qty: utxo.assets[key],
+                              index: index}),
+              index += 1
+            }
+          })
+        )
+        balance.unshift({ mph: '',
+                          tn: 'lovelace',
+                          qty: lovelace,
+                          index: 0});
+        
+        const address = await lucid.wallet.address();
+        const walletInfoDetails = new WalletInfoDetails(
+            address,
+            balance
+        );
+        return walletInfoDetails;
+    }
+
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
             lucid.selectWallet(walletAPI);
-            const addr = await lucid.wallet.address();
-            const wallet_info = await getWalletInfo(addr)
+            const wallet_info = await getWalletInfo()
             setWalletInfo({
-              ...walletInfo,
               balance : wallet_info.balance as [],
               addr: wallet_info.addr
             });
@@ -104,26 +140,7 @@ const Home: NextPage = (props: any) => {
     };
   }
 
-  const getWalletInfo = async (address: string): Promise<WalletInfoDetails>  => {
-
-    const utxos = await lucid!.utxosAt(address);
-    let balance = [] as any;
-    let index = 0;
-    utxos.forEach((utxo) =>
-      Object.keys(utxo.assets).forEach(key => {
-        (balance.push({ mph: key.length > 56 ? key.slice(0,56): '',
-                        tn: key.length > 56 ? toText(key.slice(56)): key,
-                        qty: utxo.assets[key],
-                        index: index}),
-            index += 1)
-        })
-      )
-      const walletInfoDetails = new WalletInfoDetails(
-          address,
-          balance
-      );
-      return walletInfoDetails;
-  }
+  
     
   const mint = async (params: any) => {
     

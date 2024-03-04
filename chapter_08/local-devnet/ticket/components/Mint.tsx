@@ -72,7 +72,6 @@ const mint = ({ onMint } : any) => {
                 <label className="flex items-center space-x-2">
                     <input
                         type="number"
-                        min="1"
                         name="qty"
                         id="qty"
                         placeholder="Number of tickets to mint"

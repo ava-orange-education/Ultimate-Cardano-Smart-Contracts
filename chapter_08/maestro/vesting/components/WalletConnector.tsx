@@ -1,11 +1,4 @@
 import { useState, useEffect } from "react";
-/*
-declare global {
-  interface Window {
-    cardano: any;
-  }
-}
-*/
 
 interface WalletConnectorProps {
     onWalletAPI: (walletAPI: any) => void;
@@ -24,54 +17,54 @@ interface WalletDetails {
       label: "Eternl",
     },
     nami: {
-      api: "nami",
-      label: "Nami",
+      api: "lace",
+      label: "Lace",
     }
     // Add more wallets if required
   };
   
   const WalletConnector: React.FC<WalletConnectorProps> = ({ onWalletAPI }) => {
     const [selectedWallet, setSelectedWallet] = useState<string | undefined>(undefined);
-    const [walletIsEnabled, setWalletIsEnabled] = useState(false);
-  
+
     useEffect(() => {
+
+        const checkIfWalletFound = async () => {
+          if (selectedWallet !== undefined) {  
+              const walletApi = walletDetails[selectedWallet]?.api;
+              if (window?.cardano?.[walletApi]) {
+                  console.log("Wallet found!");
+                  return true;
+              }
+          }
+          // Set false by default
+          onWalletAPI(undefined);
+          console.error('Wallet not found'); 
+          return false;
+      };
+    
+      const enableWallet = async (walletChoice: string) => {
+        const walletName = walletDetails[walletChoice]?.api;
+        if (walletName) {
+          try {
+            const walletAPI = await window.cardano[walletName].enable();
+            onWalletAPI(walletAPI);
+            return true;
+          } catch (err) {
+            console.error("enableWallet error", err);
+          }
+        }
+        return false;
+      };
+
       const checkWallet = async () => {
         if (selectedWallet && (await checkIfWalletFound())) {
-          setWalletIsEnabled(await enableWallet(selectedWallet));
+          await enableWallet(selectedWallet);
         }
       };
       checkWallet();
-    }, [selectedWallet]);
+    }, [selectedWallet, onWalletAPI]);
   
-    const checkIfWalletFound = async () => {
-        if (selectedWallet !== undefined) {  
-            const walletApi = walletDetails[selectedWallet]?.api;
-            if (window?.cardano?.[walletApi]) {
-                console.log("Wallet found!");
-                return true;
-            }
-        }
-        // Set false by default
-        setWalletIsEnabled(false);
-        onWalletAPI(undefined);
-        console.error('Wallet not found'); 
-        return false;
-    };
-  
-    const enableWallet = async (walletChoice: string) => {
-      const walletName = walletDetails[walletChoice]?.api;
-      if (walletName) {
-        try {
-          const walletAPI = await window.cardano[walletName].enable();
-          onWalletAPI(walletAPI);
-          return true;
-        } catch (err) {
-          console.error("enableWallet error", err);
-        }
-      }
-      return false;
-    };
-  
+    
     const handleWalletSelect = (obj: React.ChangeEvent<HTMLInputElement>) => {
       setSelectedWallet(obj.target.value);
     };
@@ -95,5 +88,4 @@ interface WalletDetails {
     );
   };
     
-
 export default WalletConnector;

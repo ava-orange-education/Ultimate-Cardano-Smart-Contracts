@@ -13,7 +13,6 @@ import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 import { WalletInfoDetails } from '../common/types';
 
-
 import { 
   applyParamsToScript,
   Maestro,
@@ -27,6 +26,10 @@ import {
 // Define the Cardano Network
 const network = "Preprod";
 const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
+if (!maestroAPIKey) {
+  throw console.error("NEXT_PUBLIC_MAESTRO_API_KEY not set");
+}
+
 
 // Create lucid object and connect it to the maestro provider
 const lucid = await Lucid.new(
@@ -69,16 +72,48 @@ const Home: NextPage = (props: any) => {
     });
 
   useEffect(() => {
+
+    const getWalletInfo = async (): Promise<WalletInfoDetails>  => {
+
+      const utxos = await lucid.wallet.getUtxos();
+      let balance = [] as any;
+      let index = 0;
+      let lovelace = 0n;
+      
+      utxos.forEach((utxo) =>
+        Object.keys(utxo.assets).forEach(key => {
+            if (key.length < 57) {
+              lovelace += utxo.assets[key];
+            } else {
+              balance.push({  mph: key.slice(0,56),
+                              tn: toText(key.slice(56)),
+                              qty: utxo.assets[key],
+                              index: index}),
+              index += 1
+            }
+          })
+        )
+        balance.unshift({ mph: '',
+                          tn: 'lovelace',
+                          qty: lovelace,
+                          index: 0});
+        
+        const address = await lucid.wallet.address();
+        const walletInfoDetails = new WalletInfoDetails(
+            address,
+            balance
+        );
+        return walletInfoDetails;
+    }
+
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
             lucid.selectWallet(walletAPI);
-            const addr = await lucid.wallet.address();
-            const wallet_info = await getWalletInfo(addr)
+            const _walletInfo = await getWalletInfo();
             setWalletInfo({
-              ...walletInfo,
-              balance : wallet_info.balance as [],
-              addr: wallet_info.addr
+              balance : _walletInfo.balance as [],
+              addr: _walletInfo.addr
             });
         } else {
           // Zero out wallet info if no walletAPI is present
@@ -106,26 +141,6 @@ const Home: NextPage = (props: any) => {
     };
   }
 
-  const getWalletInfo = async (address: string): Promise<WalletInfoDetails>  => {
-
-    const utxos = await lucid!.utxosAt(address);
-    let balance = [] as any;
-    let index = 0;
-    utxos.forEach((utxo) =>
-      Object.keys(utxo.assets).forEach(key => {
-        (balance.push({ mph: key.length > 56 ? key.slice(0,56): '',
-                        tn: key.length > 56 ? toText(key.slice(56)): key,
-                        qty: utxo.assets[key],
-                        index: index}),
-            index += 1)
-        })
-      )
-      const walletInfoDetails = new WalletInfoDetails(
-          address,
-          balance
-      );
-      return walletInfoDetails;
-  }
     
   const mint = async (params: any) => {
     

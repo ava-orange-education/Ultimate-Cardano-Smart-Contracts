@@ -29,7 +29,7 @@ const WalletInfo = ({ walletInfo } : any) => {
                 <Item
                   mph={item.mph}
                   tn={item.tn}
-                  qty={item.qty}
+                  qty={item.qty.toString()}
                   key={item.mph + item.tn + item.index}
                 />
               ))}

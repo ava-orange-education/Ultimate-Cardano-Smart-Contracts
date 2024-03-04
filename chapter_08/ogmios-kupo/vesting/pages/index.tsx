@@ -25,6 +25,10 @@ const network = "Preprod";
 const KUPO_API = process.env.NEXT_PUBLIC_KUPO_API as string;
 const OGMIOS_API = process.env.NEXT_PUBLIC_OGMIOS_API as string;
 
+if (!KUPO_API && !OGMIOS_API) {
+  throw console.error("NEXT_PUBLIC_KUPO_API or NEXT_PUBLIC_OGMIOS_API not set");
+}
+
 // Create lucid object and connect it to a kupo + ogmios provider
 const lucid = await Lucid.new(
   new Kupmios(
@@ -58,47 +62,45 @@ const Home: NextPage = (props: any) => {
   const [tx, setTx] = useState({ txId : '' });
   const [walletAPI, setWalletAPI] = useState<undefined | any>(undefined);
   const [walletInfo, setWalletInfo] = useState({ 
-      balance : '',
-      addr : ''
+      balance : ''
     });
 
   useEffect(() => {
+
+    // Calculate the wallet balance
+    const getWalletBalance = async () => {
+      try {
+
+        // Get the wallet balance from the wallet API
+        const balanceCBORHex = await walletAPI.getBalance();
+        
+        // Extract the balance amount in lovelace
+        const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
+        const walletBalance : BigInt = BigInt(balanceAmount.to_str());
+        return walletBalance.toLocaleString();
+      
+      } catch (error) {
+        console.error('Error in getWalletBalance:', error);
+        throw new Error('Failed to retrieve wallet balance. Please try again later.');
+      }
+    };
+
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
             const _balance = await getWalletBalance() as string;
             setWalletInfo({
-              ...walletInfo,
               balance : _balance
             });
         } else {
           // Zero out wallet info if no walletAPI is present
           setWalletInfo({
-            balance : '',
-            addr : ''
+            balance : ''
           })
         }
     }
     updateWalletInfo();
   }, [walletAPI]);
-
-  // Calculate the wallet balance
-  const getWalletBalance = async () => {
-    try {
-
-      // Get the wallet balance from the wallet API
-      const balanceCBORHex = await walletAPI.getBalance();
-      
-      // Extract the balance amount in lovelace
-      const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
-      const walletBalance : BigInt = BigInt(balanceAmount.to_str());
-      return walletBalance.toLocaleString();
-    
-    } catch (error) {
-      console.error('Error in getWalletBalance:', error);
-      throw new Error('Failed to retrieve wallet balance. Please try again later.');
-    }
-  };
 
   // Read the validator script from the filesystem
   async function readValidator(): Promise<SpendingValidator> {
