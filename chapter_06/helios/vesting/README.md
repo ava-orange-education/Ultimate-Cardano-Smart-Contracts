@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+The following environment variables need to be set:
+```
+export BLOCKFROST_API_KEY="your-blockfrost-api-key"
+export NEXT_PUBLIC_ENV="dev"
+export NEXT_PUBLIC_HOST="localhost"
+export NEXT_PUBLIC_PROTOCOL="http"
+export NEXT_PUBLIC_PORT=":3000"
+```
+
 First, run the development server:
 
 ```bash
