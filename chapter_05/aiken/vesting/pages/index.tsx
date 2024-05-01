@@ -26,7 +26,7 @@ if (!blockfrostAPI && !blockfrostAPIKey){
   throw console.error("NEXT_PUBLIC_BLOCKFROST_API or NEXT_PUBLIC_BLOCKFROST_API_KEY not set");
 }
 
-// Creaet lucid object and connect it to a 
+// Create lucid object and connect it to a 
 // blockfrost provider
 const lucid = await Lucid.new(
   new Blockfrost(blockfrostAPI, blockfrostAPIKey),

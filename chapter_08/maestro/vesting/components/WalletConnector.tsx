@@ -17,8 +17,8 @@ interface WalletDetails {
       label: "Eternl",
     },
     nami: {
-      api: "lace",
-      label: "Lace",
+      api: "nami",
+      label: "Nami",
     }
     // Add more wallets if required
   };
