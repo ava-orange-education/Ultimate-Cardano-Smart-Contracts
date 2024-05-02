@@ -1,5 +1,5 @@
 spending vesting
-
+const VERSION: String = "v0.0.1"
 /* 
  Create a datum with the owner PubKeyHash that will be included 
  into each UTXO locked at this script address.
@@ -25,9 +25,9 @@ const MESSAGE: String = "Hello World!"
 // Define the main validator function
 func main(datum: Datum, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
     tx: Tx = ctx.tx;
+    print(VERSION);
 
-    // Depending on the redeemer provided in the 
-    // transaction, process accordingly.
+    // Depending on the redeemer provided in the transaction, process accordingly.
     redeemer.switch {
         Cancel => {
             // Tx must be singed by pkh in datum
