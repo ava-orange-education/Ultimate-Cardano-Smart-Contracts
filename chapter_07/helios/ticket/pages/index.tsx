@@ -82,10 +82,10 @@ const Home: NextPage = () => {
     if (params[0].length < 5 ){
       throw console.error("Invalid number of parameters provided");
     }
-    const address = params[0] as string;
-    const name = params[1] as string;
-    const description = params[2] as string;
-    const image = params[3] as string;
+    const address = (params[0] as string).trim();
+    const name = (params[1] as string).trim();
+    const description = (params[2] as string).trim();
+    const image = (params[3] as string).trim();
     const qty = params[4] as number;
 
     if (!walletAPI) {
@@ -197,8 +197,8 @@ const Home: NextPage = () => {
     if (params[0].length < 3 ){
       throw console.error("Invalid number of parameters provided");
     }
-    const policyId = params[0] as string;
-    const tokenName = params[1] as string;
+    const policyId = (params[0] as string).trim();
+    const tokenName = (params[1] as string).trim();
     const qty = params[2] as number;
 
     setIsLoading(true);
