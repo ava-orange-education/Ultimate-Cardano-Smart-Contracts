@@ -1,0 +1,6 @@
+[submodule "chapter_08/local-devnet/blockfrost-backend-ryo"]
+	path = chapter_08/local-devnet/blockfrost-backend-ryo
+	url = https://github.com/blockfrost/blockfrost-backend-ryo
+[submodule "chapter_08/local-devnet/nami"]
+	path = chapter_08/local-devnet/nami
+	url = https://github.com/input-output-hk/nami

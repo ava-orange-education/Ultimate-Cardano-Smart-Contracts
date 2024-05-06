@@ -1,0 +1,73 @@
+version: "3.9"
+services:
+  postgres-db-sync:
+    image: postgres:14.10-alpine
+    environment:
+      - POSTGRES_LOGGING=true
+      - POSTGRES_DB_FILE=/run/secrets/postgres_db
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+    secrets:
+      - postgres_password
+      - postgres_user
+      - postgres_db
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-db-sync:/var/lib/postgresql/data
+    restart: on-failure
+    healthcheck:
+      # Use pg_isready to check postgres is running. Substitute different
+      # user `postgres` if you've setup differently to config/pgpass-mainnet
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: ${POSTGRES_ARGS:--c maintenance_work_mem=1GB -c max_parallel_maintenance_workers=4}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  cardano-db-sync:
+    image: ghcr.io/intersectmbo/cardano-db-sync:13.2.0.1
+    environment:
+      - POSTGRES_HOST=postgres-db-sync
+      - POSTGRES_PORT=5432
+    depends_on:
+      # Depend on both services to be healthy before starting.
+      postgres-db-sync:
+        condition: service_healthy
+    secrets:
+      - postgres_password
+      - postgres_user
+      - postgres_db
+    volumes:
+      - db-sync-data:/var/lib/cexplorer
+      - ./config/:/config
+      - ./cluster-data/default/node-spo1/node.sock:/node-ipc/node.socket
+      - ./cluster-data:/clusters
+    command: ["--config /config/db-sync-config.yaml", "--socket-path /node-ipc/node.socket"]
+    restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+secrets:
+  postgres_db:
+    file: ./secrets/postgres_db
+  postgres_password:
+    file: ./secrets/postgres_password
+  postgres_user:
+    file: ./secrets/postgres_user
+
+volumes:
+  db-sync-data:
+  postgres-db-sync:
+
+networks:
+  default:
+    name: devnet

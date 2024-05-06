@@ -16,7 +16,7 @@ export default async function handler(
 
         const API = new BlockFrostAPI({
           projectId: '',
-          customBackend: "http://localhost:4000/api/v0"
+          customBackend: "http://localhost:4000/"
         });
 
         const ticketTokenNameHex = bytesToHex(textToBytes(ticketTokenName));
