@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Event } from '../common/types';
+import { convertIpfsUrl } from '../common/utils'
 import OpenSwapPopup from '../pages/OpenSwapPopup';
 import ArchiveEventPopup from '../pages/ArchiveEventPopup';
 import { 
@@ -117,7 +118,7 @@ export default function EventCard (props: EventCardProps) {
       <Image
         objectFit='cover'
         maxW={{ base: '100%', sm: '200px' }}
-        src={cardEvent.image} 
+        src={convertIpfsUrl(cardEvent.image)} 
         alt={cardEvent.name}
       />
 

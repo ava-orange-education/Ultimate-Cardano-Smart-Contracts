@@ -16,7 +16,9 @@ import {
 import { 
     WalletChoice,
     WalletInfo } from "../common/types"
-import { getWalletInfo } from '../common/network';
+import { 
+    getWalletInfo,
+    network } from '../common/network';
 import WalletPopup from "../pages/WalletPopup";
 
 
@@ -127,7 +129,7 @@ export default function WalletConnect(props: WalletConnectProps) {
                 <Image src={selectedChoice.imgSrc.src} alt={selectedChoice.name} width={30} />
             </Box>
             <Box display={["none", "block", "block"]}>
-                <Text ml="5px">₳ {(props.walletInfo.lovelace / 1_000_000).toLocaleString()}</Text>
+                <Text ml="5px">{(network as 'mainnet' | 'preprod') === "mainnet" ? "₳" : "t₳" } {(props.walletInfo.lovelace / 1_000_000).toLocaleString()}</Text>
             </Box>
             <Box ml="10px">
                 <Button

@@ -25,6 +25,7 @@ import {
   getEvent,
   isTestnet 
 } from '../common/network';
+import { convertIpfsUrl } from '../common/utils';
 import {  
   Event, 
   Swap,
@@ -158,7 +159,7 @@ export default function SwapCard (props: SwapCardProps) {
           <Image
             objectFit='cover'
             maxW={{ base: '100%', sm: '200px' }}
-            src={props.swap.image} 
+            src={convertIpfsUrl(props.swap.image)} 
             alt={props.swap.name}
           />
     
@@ -240,7 +241,7 @@ export default function SwapCard (props: SwapCardProps) {
           <Image
             objectFit='cover'
             maxW={{ base: '100%', sm: '200px' }}
-            src={props.swap.image} 
+            src={convertIpfsUrl(props.swap.image)} 
             alt={props.swap.name}
           />
     

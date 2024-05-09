@@ -8,6 +8,7 @@ import {
   TabPanel,
   TabPanels
 } from "@chakra-ui/react"
+import { EventEmitter } from 'events';
 
 import SwapView from "../components/SwapView";
 import { WalletInfo } from "../common/types";
@@ -26,6 +27,7 @@ export default function Tickets() {
     });
   
   const [swapViewRefresh, setSwapViewRefresh] = useState(0);
+  EventEmitter.defaultMaxListeners = 20;
  
   return (
 

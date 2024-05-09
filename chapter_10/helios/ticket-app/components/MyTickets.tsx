@@ -17,7 +17,7 @@ import {
 import { 
   PrintTicketInfo,
   WalletInfo } from "../common/types"
-
+import { convertIpfsUrl } from "../common/utils"
 import { getTicketMetadataCIP68 } from "../common/network"
 import PrintTicketPopup from '../pages/PrintTicketPopup';
 
@@ -94,7 +94,7 @@ export default function PrintTicket(props: PrintTicketProps) {
               {printTickets.map((ticket, index) => (
                     <Tr key={ticket.asset}>
                       <Td>
-                          <Image src={ticket.image}/>
+                          <Image src={convertIpfsUrl(ticket.image)}/>
                       </Td>
                       <Td>{ticket.name.split("|")[0]}</Td>
                       <Td>{ticket.location}</Td>
