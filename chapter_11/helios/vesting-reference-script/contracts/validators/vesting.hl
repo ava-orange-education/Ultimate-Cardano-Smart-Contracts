@@ -1,5 +1,5 @@
 spending vesting
-const version: String = "1.0.2"
+const version: String = "1.0.4"
 
 /* 
  Create a datum with the owner PubKeyHash that will be included 
