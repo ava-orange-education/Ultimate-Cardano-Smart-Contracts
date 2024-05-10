@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NextLink from 'next/link';
 import { useSWRConfig } from 'swr';
-import validator from 'validator';
 
 import { generateMetadataTicket } from '../common/metadata';
 import {  
