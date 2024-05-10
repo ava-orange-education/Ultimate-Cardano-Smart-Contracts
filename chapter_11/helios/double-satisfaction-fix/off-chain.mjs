@@ -146,28 +146,37 @@ const buy = async () => {
         const buyRedeemer = (new buyProgram .types.Redeemer.Buy(bob.pubKeyHash))
                               ._toUplcData();
 
-        // Add the UTXO as inputs
-        const utxos = await network.getUtxos(buyValAddr);
-        const filteredUtxos = utxos.filter(utxo => 
+        // Add the UTXO with NFTA as inputs
+        const utxosA = await network.getUtxos(buyValAddr);
+        const filteredUtxosA = utxosA.filter(utxo => 
             utxo.value.assets.has(nftAMPH, nftATN)
         )
 
-        console.log(" filteredUtxos: ", filteredUtxos);
-        tx.addInputs(filteredUtxos, buyRedeemer);
+        console.log(" filteredUtxosA: ", filteredUtxosA);
+        tx.addInputs(filteredUtxosA, buyRedeemer);
+
+        // Add the UTXO with NFTB as inputs
+        const utxos = await network.getUtxos(buyValAddr);
+        const filteredUtxosB = utxos.filter(utxo => 
+            utxo.value.assets.has(nftBMPH, nftBTN)
+        )
+
+        console.log(" filteredUtxosB: ", filteredUtxosB);
+        tx.addInputs(filteredUtxosB, buyRedeemer);
 
         // Add the script as a witness to the transaction
         tx.attachScript(buyCompProgram);
 
         // Attach the output to send both NFT A & B to bob
-        //tx.addOutput(new TxOutput(
-        //    bob.address,
-        //    new Value(minAda, nftA).add(new Value(0n, nftB))
-        //));
-
         tx.addOutput(new TxOutput(
             bob.address,
-            new Value(minAda, nftA)
+            new Value(minAda, nftA).add(new Value(0n, nftB))
         ));
+
+        //tx.addOutput(new TxOutput(
+        //    bob.address,
+        //    new Value(minAda, nftA)
+        //));
 
         // Attach the output to pay alice
         tx.addOutput(new TxOutput(
@@ -175,7 +184,7 @@ const buy = async () => {
             new Value(150_000_000n)
         ));
 
-        await tx.finalize(networkParams, bob.address, utxos);
+        await tx.finalize(networkParams, bob.address);
 
         console.log("tx: ", tx.dump);
 
