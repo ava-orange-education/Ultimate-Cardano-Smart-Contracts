@@ -109,7 +109,7 @@ if (orderAmt < 1) {
 } else if (diff >= 0) { 
     qtyToBuy = qty;  // can purchase all available qty
     qtyRemainder = BigInt(0);
-    changeAmt = spendAmt - qtyToBuy * price; // return the change to the buyer
+    changeAmt = BigInt(spendAmt) - BigInt(qtyToBuy) * BigInt(price); // return the change to the buyer
 } else {
     qtyToBuy = orderAmt; 
     qtyRemainder = BigInt(qty) - BigInt(orderAmt);  // calc the remaining qty at the utxo
