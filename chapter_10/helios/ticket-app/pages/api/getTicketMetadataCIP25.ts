@@ -55,7 +55,7 @@ export default async function handler(
     try {
         // TODO - sanitize inputs
         const ticketInfo = await getTicketMetadataCIP25(req.body.asset)
-        console.log("getTicketMetadataCIP25: ticketInfo: ", ticketInfo);
+        //console.log("getTicketMetadataCIP25: ticketInfo: ", ticketInfo);
         res.status(200).send(ticketInfo);
     }
     catch (err) {

@@ -37,7 +37,7 @@ export {
     network
 }
 
-const blockConfirmDisabled = true; // disable block confirmations
+const blockConfirmDisabled = false; // disable block confirmations
 const isTestnet = true;
 const network="preprod"
 const env = process.env.NEXT_PUBLIC_ENV as string;

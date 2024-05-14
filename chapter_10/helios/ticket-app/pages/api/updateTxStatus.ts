@@ -3,8 +3,12 @@ import { eventRepository } from '../../schema/event';
 import { swapRepository } from '../../schema/swap';
 import { Entity } from "redis-om";
 import { verifyWebhookSignature } from "@blockfrost/blockfrost-js";
+import { 
+  hexToBytes,
+  ListData 
+} from '@hyperionbt/helios';
 
-async function updateDB (txId: string) {
+async function updateDB (txId: string, txOutputs: any) {
 
   let event = await eventRepository.search()
     .where('txId').eq(txId)
@@ -25,7 +29,18 @@ async function updateDB (txId: string) {
 
   // Update swap in db
   if (swap) {
-    swap.confirmed = true;
+    try {
+      // update askedAsset and offeredAsset Qty & confirm tx if a swap was executed
+      const txDatum = txOutputs[1].inline_datum;
+      const listDataJson = JSON.parse((ListData.fromCbor(hexToBytes(txDatum))).toSchemaJson());
+      swap.askedAssetQty = listDataJson.list[0].map[0].v.map[0].v.int;
+      swap.offeredAssetQty = listDataJson.list[1].map[0].v.map[0].v.int;
+      swap.confirmed = true;
+    } catch (err) {
+      // otherwise just confirm tx
+      swap.confirmed = true;
+    }
+    
     await swapRepository.save(swap);
     console.log("updateTxStatus: swap: Success");
   } else {
@@ -63,7 +78,7 @@ export default async function handler(
         // loop through the payload (payload is an array of Transaction events)
         for (const transaction of payload) {
           try {
-            await updateDB(transaction.tx.hash);
+            await updateDB(transaction.tx.hash, transaction.outputs);
            } catch (err) {
             console.error("updateTxStatused Error: ", err);
             res.status(500).send(err);

@@ -14,7 +14,7 @@ export default async function handler(
 
     const getTicketMetadataCIP68 = async (asset: string) : Promise<PrintTicketInfo> => {
 
-        console.log("getTicketMetadataCIP68: asset: ", asset);
+        //console.log("getTicketMetadataCIP68: asset: ", asset);
         const apiKey = process.env.BLOCKFROST_API_KEY as string;
         const API = new BlockFrostAPI({
             projectId: apiKey
@@ -22,7 +22,7 @@ export default async function handler(
 
         // Call the blockfrost API to get the CIP-25 metadata
         const ticketMetadata = await API.assetsById(asset);
-        console.log("getTicketMetadataCIP68: ticketMetadata: ", ticketMetadata);
+        //console.log("getTicketMetadataCIP68: ticketMetadata: ", ticketMetadata);
 
         const name = ticketMetadata.onchain_metadata!.name as string;
         const image = ticketMetadata.onchain_metadata!.image as string;
@@ -50,7 +50,7 @@ export default async function handler(
     try {
         // TODO - sanitize inputs
         const printTicket = await getTicketMetadataCIP68(req.body.asset)
-        console.log("getTicketMetadataCIP68: return: ", printTicket);
+        //console.log("getTicketMetadataCIP68: return: ", printTicket);
         res.status(200).send(printTicket);
     }
     catch (err) {
