@@ -138,7 +138,7 @@ const Home: NextPage = (props: any) => {
       // Construct the Mint redeemer
       const mintRedeemer = Data.to(new Constr(0, []));
 
-      // Dervie the minting policy id & asset name
+      // Derive the minting policy id & asset name
       const policyId = lucid.utils.validatorToScriptHash(validator);
       const assetName = `${policyId}${fromText(name)}`;
 
