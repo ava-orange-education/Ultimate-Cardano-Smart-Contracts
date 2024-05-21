@@ -27,7 +27,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to launch the application.
 
 #
-### Please Note: This is a project-based learning example and not intended for production use
+### Please Note: This is a project-based learning example and not optimized for production use
 
 ### Legal Notice
 ```
