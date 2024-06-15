@@ -1,0 +1,14 @@
+{
+  "name": "double-satisfaction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "off-chain.mjs",
+  "scripts": {
+    "dev": "node ./off-chain.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hyperionbt/helios": "^0.16.3"
+  }
+}
