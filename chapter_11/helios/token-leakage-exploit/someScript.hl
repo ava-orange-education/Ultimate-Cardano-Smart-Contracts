@@ -1,6 +1,0 @@
-spending someScript
-
-func main(_,_,_) -> Bool {
-    false
-}
-
