@@ -1,0 +1,77 @@
+{
+  "preamble": {
+    "title": "aiken-lang/contracts",
+    "description": "Aiken contracts for project 'aiken-lang/contracts'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.26-alpha+075668b"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "vesting.vesting",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Redeemer"
+        }
+      },
+      "compiledCode": "590104010000323232323232232322322533300753330073005300837540062646644646600200200644a66601e00229404c94ccc034cdc79bae301100200414a226600600600260220026eb0c030c034c034c034c034c034c034c034c034c028dd5180098051baa002375c600260146ea801c8c0300044cdc79bae300b3009375400691010c48656c6c6f20576f726c64210014984d958c94ccc018c01000454ccc024c020dd50010a4c2c2a66600c66e1d200200113232533300b300d002149858dd7180580098041baa0021630063754002a666006600260086ea80084c8c94ccc020c02800852616375c6010002600a6ea800858dc3a4000ae6955ceaab9e5573eae855d11",
+      "hash": "7352ab8210b4f81039c4663327817c94fb11b9c8ef7d28ea5bb60c8b"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "vesting/Datum": {
+      "title": "Datum",
+      "description": "Create a datum with the owner PubKeyHash that will be included \n into each UTXO locked at this script address.",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "vesting/Redeemer": {
+      "title": "Redeemer",
+      "description": "The vesting contract can be either cancelled by the owner\n or claimed by the beneificiary",
+      "anyOf": [
+        {
+          "title": "Cancel",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Claim",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": [
+            {
+              "title": "msg",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

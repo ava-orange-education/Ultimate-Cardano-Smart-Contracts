@@ -1,0 +1,49 @@
+spending multisig
+
+struct Datum {
+    required: Int
+    amount: Value
+    beneficiary: PubKeyHash
+    signatures: []PubKeyHash
+}
+enum Redeemer {
+    Sign {
+        pkh: PubKeyHash
+    }
+    Withdraw
+}
+const ALICE_PKH: PubKeyHash = PubKeyHash::new(#)
+const CAROL_PKH: PubKeyHash = PubKeyHash::new(#)
+
+func main(datum: Datum, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
+    tx: Tx = ctx.tx;
+    vHash: ValidatorHash = ctx.get_current_validator_hash();
+    
+    redeemer.switch {
+        red: Sign => {
+            newDatum: Datum = Datum {
+                required: datum.required,
+                amount: datum.amount,
+                beneficiary: datum.beneficiary,
+                signatures: datum.signatures.prepend(red.pkh)
+            };
+            txOutput: []TxOutput = tx.outputs_locked_by_datum(vHash, newDatum, true);
+            datumOut: Datum = Datum::from_data(txOutput.head.datum.get_inline_data());
+            filterSigs: []PubKeyHash = datumOut.signatures.filter((pkh: PubKeyHash) 
+                                                            -> Bool {pkh == red.pkh});
+            // Each signaure must be signed and then added to the datum
+            (tx.is_signed_by(red.pkh)).trace("MSV1: ") &&
+            (red.pkh == ALICE_PKH || red.pkh == CAROL_PKH).trace("MSV2: ") &&
+            (txOutput.head.value == datum.amount).trace("MSV3: ") &&
+            (filterSigs.length == 1).trace("MSV4: ") &&
+            (datum.signatures.length == datumOut.signatures.length - 1).trace("MSV5: ")      
+        },
+        Withdraw => {
+            // Confirm required signatures and only allow beneficiary to spend
+            (datum.signatures.length == datum.required).trace("MSV6: ") &&
+            (tx.is_signed_by(datum.beneficiary)).trace("MSV7: ") 
+        }
+    }    
+}
+
+

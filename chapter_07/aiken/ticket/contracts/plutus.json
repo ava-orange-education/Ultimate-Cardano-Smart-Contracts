@@ -1,0 +1,109 @@
+{
+  "preamble": {
+    "title": "book/ticket",
+    "description": "Aiken contracts for project 'book/ticket'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.23-alpha+8584adc"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "ticket.ticket",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/ticket~1Redeemer"
+        }
+      },
+      "parameters": [
+        {
+          "title": "token_name",
+          "schema": {
+            "$ref": "#/definitions/ByteArray"
+          }
+        },
+        {
+          "title": "qty",
+          "schema": {
+            "$ref": "#/definitions/Int"
+          }
+        },
+        {
+          "title": "utxo_ref",
+          "schema": {
+            "$ref": "#/definitions/aiken~1transaction~1OutputReference"
+          }
+        }
+      ],
+      "compiledCode": "5901f601000032323232323232323223223222232533300b32323232533300f3370e9000180700089919191919191919191919299980e98100010991919299980e99b87480000044c94ccc078cdc3a4000603a0022a66603c66e1c00c0604cdc780200d0a5016323300100100c22533302200114c103d87a80001323253330213375e604c603e004034266e952000330250024bd70099802002000981300118120008a99980e99b88002480004cdc780180c8a50301b014375a603a0046eb8c06c00458c078004c8c8c94ccc06ccdc3a4004002297adef6c6013756604060320046032002646600200200444a66603c002298103d87a8000132323232533301f3371e01e004266e95200033023374c00297ae0133006006003375660400066eb8c078008c088008c080004c8cc004004008894ccc07400452f5bded8c0264646464a66603c66e3d221000021003133022337606ea4008dd3000998030030019bab301f003375c603a0046042004603e0026eacc070004c070004c06c004c068004c064008dd6180b80098078029bae3015001300d00116301300130130023011001300900214984d958c94ccc02ccdc3a40000022a66601c60120062930b0a99980599b874800800454ccc038c02400c52616163009002375a0026eb80048c014dd5000918019baa0015734aae7555cf2ab9f5740ae855d101",
+      "hash": "4eb12c7842910b1c1119a4b14377c0326f1fbe2a41ab259fd5466fa5"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "aiken/transaction/OutputReference": {
+      "title": "OutputReference",
+      "description": "An `OutputReference` is a unique reference to an output on-chain. The `output_index`\n corresponds to the position in the output list of the transaction (identified by its id)\n that produced that output",
+      "anyOf": [
+        {
+          "title": "OutputReference",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "transaction_id",
+              "$ref": "#/definitions/aiken~1transaction~1TransactionId"
+            },
+            {
+              "title": "output_index",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "aiken/transaction/TransactionId": {
+      "title": "TransactionId",
+      "description": "A unique transaction identifier, as the hash of a transaction body. Note that the transaction id\n isn't a direct hash of the `Transaction` as visible on-chain. Rather, they correspond to hash\n digests of transaction body as they are serialized on the network.",
+      "anyOf": [
+        {
+          "title": "TransactionId",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "hash",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "ticket/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Mint",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Burn",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    }
+  }
+}
