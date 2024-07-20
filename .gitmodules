@@ -1,9 +1,11 @@
 [submodule "chapter_08/local-devnet/yaci-devkit"]
 	path = chapter_08/local-devnet/yaci-devkit
 	url = https://github.com/lley154/yaci-devkit
+	branch = lley
 [submodule "chapter_08/local-devnet/nami"]
 	path = chapter_08/local-devnet/nami
 	url = https://github.com/lley154/nami
+	branch = lley
 [submodule "chapter_08/local-devnet/blockfrost-backend-ryo"]
 	path = chapter_08/local-devnet/blockfrost-backend-ryo
 	url = https://github.com/lley154/blockfrost-backend-ryo
