@@ -10,7 +10,7 @@ export default async function handler(
 
     const getWalletInfo = async ( address: string) : Promise<WalletInfo> => {
 
-        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
+        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_KEY as string;
         const API = new BlockFrostAPI({
             projectId: apiKey
           });

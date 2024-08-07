@@ -9,7 +9,7 @@ export NEXT_PUBLIC_HOST="localhost"
 export NEXT_PUBLIC_PROTOCOL="http"
 export NEXT_PUBLIC_PORT=":3000"
 export NEXT_PUBLIC_BLOCKFROST_API="https://cardano-preprod.blockfrost.io/api/v0"
-export NEXT_PUBLIC_BLOCKFROST_API_KEY="our-blockfrost-api-key"
+export NEXT_PUBLIC_BLOCKFROST_KEY="our-blockfrost-api-key"
 ```
 
 First, run the development server:

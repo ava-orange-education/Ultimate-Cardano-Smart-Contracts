@@ -11,7 +11,7 @@ export default async function handler(
     const getTicketMetadata = async (  ticketPolicyId: string,
                                     ticketTokenName: string) : Promise<TicketInfo> => {
 
-        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY as string;
+        const apiKey = process.env.NEXT_PUBLIC_BLOCKFROST_KEY as string;
         const API = new BlockFrostAPI({
             projectId: apiKey
           });
