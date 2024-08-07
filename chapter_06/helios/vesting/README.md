@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The following environment variables need to be set:
 ```
-export BLOCKFROST_API_KEY="your-blockfrost-api-key"
+export BLOCKFROST_KEY="your-blockfrost-api-key"
 export NEXT_PUBLIC_ENV="dev"
 export NEXT_PUBLIC_HOST="localhost"
 export NEXT_PUBLIC_PROTOCOL="http"
