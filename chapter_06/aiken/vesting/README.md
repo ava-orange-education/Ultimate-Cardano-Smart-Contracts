@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 The following environment variables need to be set
 ```
 export NEXT_PUBLIC_BLOCKFROST_API="https://cardano-preprod.blockfrost.io/api/v0"
-export NEXT_PUBLIC_BLOCKFROST_API_KEY="our-blockfrost-api-key"
+export NEXT_PUBLIC_BLOCKFROST_KEY="our-blockfrost-api-key"
 ```
 
 First, run the development server:
