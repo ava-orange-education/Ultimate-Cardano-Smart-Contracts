@@ -8,7 +8,7 @@ export NEXT_PUBLIC_ENV="dev"
 export NEXT_PUBLIC_HOST="localhost"
 export NEXT_PUBLIC_PROTOCOL="http"
 export NEXT_PUBLIC_PORT=":3000"
-export BLOCKFROST_API_KEY="your-blockfrost-api-key"
+export BLOCKFROST_KEY="your-blockfrost-api-key"
 ```
 
 First, run the development server:

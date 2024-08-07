@@ -12,9 +12,9 @@ export default async function handler(
 
     const getWalletInfo = async ( address: string) : Promise<WalletInfo> => {
 
-        const apiKey = process.env.BLOCKFROST_API_KEY as string;
+        const apiKey = process.env.BLOCKFROST_KEY as string;
         if (!apiKey) {
-            throw console.log("BLOCKFROST_API_KEY not set");
+            throw console.log("BLOCKFROST_KEY not set");
           }
         const API = new BlockFrostAPI({
             projectId: apiKey
