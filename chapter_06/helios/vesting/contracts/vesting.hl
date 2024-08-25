@@ -1,5 +1,5 @@
 spending vesting
-const VERSION: String = "v0.0.2"
+const VERSION: String = "v0.0.3"
 /* 
  Create a datum with the owner PubKeyHash that will be included 
  into each UTXO locked at this script address.
