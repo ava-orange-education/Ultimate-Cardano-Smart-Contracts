@@ -15,7 +15,8 @@ export default async function handler(
         const blockfrostAPI = new BlockfrostV0(network, apiKey);
         const vestingUTXOs = await blockfrostAPI.getUtxos(
                                         Address.fromBech32(vestingValidatorAddr));  
-         
+        console.log("vestingUTXOs[0]: ", vestingUTXOs[0].dump()); 
+        console.log("vestingUTXOs[1]: ", vestingUTXOs[1].dump()); 
         if (vestingUTXOs.length != 2) {
             throw console.error("Invalid amount of UTXOs found at vesting address: ",
                                  vestingValidatorAddr);
