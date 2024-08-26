@@ -18,7 +18,7 @@ import {
   Data,
   fromText,
   Lucid,
-  SpendingValidator } from "lucid-cardano"; 
+  SpendingValidator } from 'lucid-cardano'; 
 
 // Define the Cardano Network
 const network = "Preprod";
