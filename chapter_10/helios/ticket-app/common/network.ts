@@ -37,7 +37,7 @@ export {
     network
 }
 
-const blockConfirmDisabled = false; // disable block confirmations
+const blockConfirmDisabled = true; // disable block confirmations
 const isTestnet = true;
 const network="preprod"
 const env = process.env.NEXT_PUBLIC_ENV as string;
@@ -85,9 +85,9 @@ async function getNetworkParams(network: string) {
 
     var networkParamsUrl;
     if (network === "preview") {
-        networkParamsUrl = "https://d1t0d7c2nekuk0.cloudfront.net/preview.json";
+        networkParamsUrl = "http://localhost:3000/params/preview.json";
     } else if (network === "preprod") {
-        networkParamsUrl = "https://d1t0d7c2nekuk0.cloudfront.net/preprod.json";
+        networkParamsUrl = "http://localhost:3000/params/preprod.json";
     } else if (network === "mainnet") {
         networkParamsUrl = "https://d1t0d7c2nekuk0.cloudfront.net/mainnet.json";
     } else {

@@ -20,7 +20,7 @@
     "@hyperionbt/helios-loader": "^0.1.5",
     "axios": "^1.6.2",
     "framer-motion": "^11.0.3",
-    "next": "14.0.3",
+    "next": "^14.2.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-qr-code": "^2.0.12",

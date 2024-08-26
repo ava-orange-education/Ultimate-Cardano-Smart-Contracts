@@ -34,6 +34,7 @@ export default function mint (props: MintTicketProps) {
                 <Input
                     type="text"
                     name="name"
+                    maxLength={12}
                     id="name"
                     placeholder="Enter Event Name"
                     value={name}
