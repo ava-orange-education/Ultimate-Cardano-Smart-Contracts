@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { BlockFrostAPI } from '@blockfrost/blockfrost-js';
-import {toText} from 'lucid-cardano';
+import { toText } from '@lucid-evolution/lucid';
 
 import { WalletInfo } from '../../common/types';
 

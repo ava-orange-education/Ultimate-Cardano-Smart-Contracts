@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lucid-cardano": "^0.10.7",
+    "@anastasia-labs/cardano-multiplatform-lib-browser": "^5.3.1-7",
+    "@lucid-evolution/lucid": "^0.3.15",
+    "@lucid-evolution/plutus": "^0.1.20",
+    "@lucid-evolution/utils": "^0.1.36",
     "next": "^14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"

@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { BlockFrostAPI } from '@blockfrost/blockfrost-js';
 
 import { TicketInfo } from '../../common/types';
-import { fromText } from 'lucid-cardano';
+import { fromText } from '@lucid-evolution/lucid';
 
 export default async function handler(
   req: NextApiRequest,

@@ -14,13 +14,14 @@ import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 
 import { 
-  applyParamsToScript,
-  Blockfrost,
-  Constr,
-  Data,
-  fromText,
+  fromText, 
   Lucid,
-  SpendingValidator } from "lucid-cardano"; 
+  SpendingValidator, 
+  validatorToScriptHash } from "@lucid-evolution/lucid";
+import { Blockfrost } from "@lucid-evolution/provider";
+import { WalletApi } from "@lucid-evolution/core-types";
+import { Constr, Data } from "@lucid-evolution/plutus";
+import { applyParamsToScript, applyDoubleCborEncoding } from "@lucid-evolution/utils";
 
 // Define the Cardano Network
 const network = "Preprod";
@@ -31,9 +32,9 @@ if (!blockfrostAPI && !blockfrostAPIKey){
   throw console.error("NEXT_PUBLIC_BLOCKFROST_API or NEXT_PUBLIC_BLOCKFROST_KEY not set");
 }
 
-const lucid = await Lucid.new(
+const lucid = await Lucid(
   new Blockfrost(blockfrostAPI, blockfrostAPIKey),
-  network,
+  network, 
 );
 
 
@@ -70,8 +71,8 @@ const Home: NextPage = (props: any) => {
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
-            lucid.selectWallet(walletAPI);
-            const addr = await lucid.wallet.address();
+            lucid.selectWallet.fromAPI(walletAPI as WalletApi);
+            const addr = await lucid.wallet().address();
             const _wallet_info = await getWalletInfo(addr)
             setWalletInfo({
               ...walletInfo,
@@ -97,10 +98,10 @@ const Home: NextPage = (props: any) => {
     
     return {
       type: "PlutusV2",
-      script: applyParamsToScript(validator.compiledCode, [
-                                  fromText(tokenName),
-                                  BigInt(qty),
-                                  outRef],)
+      script: applyParamsToScript( applyDoubleCborEncoding(validator.compiledCode), 
+                                  [ fromText(tokenName),
+                                    BigInt(qty),
+                                    outRef ]),
     };
   }
     
@@ -120,10 +121,10 @@ const Home: NextPage = (props: any) => {
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Select wallet UTXOs and use the first one
-      const utxos = await lucid?.wallet.getUtxos()!;
+      const utxos = await lucid?.wallet().getUtxos()!;
       const utxo = utxos[0];
 
       // Create the UTXO that must be spent as part of this tx
@@ -139,7 +140,7 @@ const Home: NextPage = (props: any) => {
       const mintRedeemer = Data.to(new Constr(0, []));
 
       // Derive the minting policy id & asset name
-      const policyId = lucid.utils.validatorToScriptHash(validator);
+      const policyId = validatorToScriptHash(validator);
       const assetName = `${policyId}${fromText(name)}`;
 
       // Generate the metadata
@@ -150,21 +151,21 @@ const Home: NextPage = (props: any) => {
                                         BigInt(qty),
                                         utxo.txHash,
                                         utxo.outputIndex);
-
+      
       const tx = await lucid
         .newTx()
         .collectFrom([utxo])
-        .attachMintingPolicy(validator)
+        .attach.MintingPolicy(validator)
         .attachMetadata(721, metadata)
         .mintAssets(
           { [assetName]: BigInt(qty) },
           mintRedeemer
         )
-        .payToAddress(address, { [assetName]: BigInt(qty) })
+        .pay.ToAddress(address, { [assetName]: BigInt(qty) })
         .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
@@ -192,10 +193,10 @@ const Home: NextPage = (props: any) => {
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Select wallet UTXOs and use the first one
-      const utxos = await lucid?.wallet.getUtxos()!;
+      const utxos = await lucid?.wallet().getUtxos()!;
       const utxo = utxos[0];
 
       // Get the Ticket metadata needed for the script parameters
@@ -222,7 +223,7 @@ const Home: NextPage = (props: any) => {
       const tx = await lucid
         .newTx()
         .collectFrom([utxo])
-        .attachMintingPolicy(validator)
+        .attach.MintingPolicy(validator)
         .mintAssets(
           { [assetName]: BigInt(-1 * qty) },
           mintRedeemer
@@ -230,7 +231,7 @@ const Home: NextPage = (props: any) => {
         .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();

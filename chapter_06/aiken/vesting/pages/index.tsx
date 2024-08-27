@@ -12,13 +12,17 @@ import WalletConnector from '../components/WalletConnector';
 import WalletInfo from '../components/WalletInfo';
 
 import { 
-  Blockfrost,
-  C, 
-  Constr,
-  Data,
-  fromText,
-  Lucid,
-  SpendingValidator } from 'lucid-cardano'; 
+  fromText, 
+  getAddressDetails,
+  Lucid, 
+  SpendingValidator,
+  validatorToAddress
+ } from "@lucid-evolution/lucid";
+import { Blockfrost } from "@lucid-evolution/provider";
+import { WalletApi } from "@lucid-evolution/core-types";
+import { Constr, Data } from "@lucid-evolution/plutus";
+import { Value } from "@anastasia-labs/cardano-multiplatform-lib-browser";
+
 
 // Define the Cardano Network
 const network = "Preprod";
@@ -30,9 +34,9 @@ if (!blockfrostAPI && !blockfrostAPIKey){
 }
 
 // Create lucid object and connect it to a blockfrost provider
-const lucid = await Lucid.new(
+const lucid = await Lucid(
   new Blockfrost(blockfrostAPI, blockfrostAPIKey),
-  network,
+  network, 
 );
 
 export async function getServerSideProps() {
@@ -72,9 +76,8 @@ const Home: NextPage = (props: any) => {
         const balanceCBORHex = await walletAPI.getBalance();
         
         // Extract the balance amount in lovelace
-        const balanceAmount : C.BigNum = C.Value.from_bytes(Buffer.from(balanceCBORHex, "hex")).coin();
-        const walletBalance : BigInt = BigInt(balanceAmount.to_str());
-        return walletBalance.toLocaleString();
+        const balanceAmount = Value.from_cbor_hex(balanceCBORHex).coin();
+        return balanceAmount.toLocaleString();
       
       } catch (error) {
         console.error('Error in getWalletBalance:', error);
@@ -116,11 +119,11 @@ const Home: NextPage = (props: any) => {
     try {
       // Lock 2 Ada at the script address
       const lovelace = BigInt(2_000_000);
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Get the pkh from the wallet
-      const publicKeyHash = lucid.utils.getAddressDetails(
-        await lucid.wallet.address()
+      const publicKeyHash = getAddressDetails(
+        await lucid.wallet().address()
       ).paymentCredential?.hash;
 
       // Construct the datum
@@ -128,15 +131,19 @@ const Home: NextPage = (props: any) => {
 
       // Read in the validator script and determine the script address
       const validator = await readValidator();
-      const contractAddress = lucid.utils.validatorToAddress(validator);
+      const contractAddress = validatorToAddress(network, validator);
 
       const tx = await lucid
-        .newTx()
-        .payToContract(contractAddress, { inline: datum }, { lovelace })
-        .complete();
+      .newTx()
+      .pay.ToAddressWithData(
+        contractAddress,
+        { kind: "inline", value: datum },
+        { lovelace }
+      )
+      .complete();
       
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
@@ -162,11 +169,11 @@ const Home: NextPage = (props: any) => {
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Read in the validator script and determine the script address
       const validator = await readValidator();
-      const contractAddress = lucid.utils.validatorToAddress(validator);
+      const contractAddress = validatorToAddress(network, validator);
       
       // Construct the Claim redeemer
       const vestingRedeemer = Data.to(new Constr(1, [fromText(message)]));
@@ -180,11 +187,11 @@ const Home: NextPage = (props: any) => {
       const tx = await lucid
         .newTx()
         .collectFrom([utxo[0]], vestingRedeemer)
-        .attachSpendingValidator(validator)
+        .attach.SpendingValidator(validator)
         .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
@@ -205,11 +212,11 @@ const Home: NextPage = (props: any) => {
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Read in the validator script and determine the script address
       const validator = await readValidator();
-      const contractAddress = lucid.utils.validatorToAddress(validator);
+      const contractAddress = validatorToAddress(network, validator);
       
       // Construct the Cancel redeemer
       const vestingRedeemer = Data.to(new Constr(0,[]));
@@ -223,12 +230,12 @@ const Home: NextPage = (props: any) => {
       const tx = await lucid
         .newTx()
         .collectFrom([utxo[0]], vestingRedeemer)
-        .addSigner(await lucid.wallet.address())
-        .attachSpendingValidator(validator)
+        .addSigner(await lucid.wallet().address())
+        .attach.SpendingValidator(validator)
         .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
