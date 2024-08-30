@@ -12,7 +12,8 @@
     "test:prop": "vitest --config ./contracts/tests/vitest.config.property.ts run --no-threads"
   },
   "dependencies": {
-    "@hyperionbt/helios": "^0.16.7",
+    "@hyperionbt/helios": "./lib/hyperionbt-helios-0.16.7-2d7b63536ea35b2b4a6a542dc94dc5b5237c78cc.tgz",
+    "@hyperionbt/helios-loader": "^0.1.5",
     "axios": "^1.6.7",
     "fast-check": "^3.15.0",
     "next": "^14.1.1",

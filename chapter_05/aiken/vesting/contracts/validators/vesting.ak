@@ -3,13 +3,15 @@ use aiken/list
 use aiken/string
 use aiken/transaction.{ScriptContext}
 use aiken/transaction/credential.{VerificationKey}
-const version: ByteArray = "v1.0.0"
+
+const version: ByteArray = "2024-08-30-1.0.8"
 
 /// Create a datum with the owner PubKeyHash that will be included 
 /// into each UTXO locked at this script address.
 type Datum {
   owner: Hash<Blake2b_224, VerificationKey>,
 }
+
 /// The vesting contract can be either cancelled by the owner
 /// or claimed by the beneificiary
 type Redeemer {

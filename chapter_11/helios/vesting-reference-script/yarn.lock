@@ -82,10 +82,15 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-2.0.1.tgz"
   integrity sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==
 
-"@hyperionbt/helios@^0.16.7":
+"@hyperionbt/helios-loader@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/@hyperionbt/helios-loader/-/helios-loader-0.1.5.tgz"
+  integrity sha512-02G8T+n82hHbhPm1FbR6FdHHFOSrZNnAE36SXcza0X0NQqGHG0wVqvfFfVcIJ6Z13ErHnuePBySDjPTZDCM1Kw==
+
+"@hyperionbt/helios@./lib/hyperionbt-helios-0.16.7-2d7b63536ea35b2b4a6a542dc94dc5b5237c78cc.tgz":
   version "0.16.7"
-  resolved "https://registry.npmjs.org/@hyperionbt/helios/-/helios-0.16.7.tgz"
-  integrity sha512-ysPaF0OCY0NJa1mc+LXERjH71VDNGUbYrrovKUHJv1v+eS1WJhKmxSHWh9sVa6b+sYoXdKwoCR20UQhzCF5jzA==
+  resolved "file:lib/hyperionbt-helios-0.16.7-2d7b63536ea35b2b4a6a542dc94dc5b5237c78cc.tgz"
+  integrity sha512-TrvqYhmEWQdHSPznKghKPa5xM7vn4ox9BSxqAEjLOTuj9Xv8845kUPxGq3Od8wswiXOs8IV1+Dt/NlwwIXv30g==
 
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"

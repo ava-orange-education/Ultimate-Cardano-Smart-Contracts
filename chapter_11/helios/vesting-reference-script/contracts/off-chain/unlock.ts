@@ -91,7 +91,6 @@ export default async function unlock (
             throw console.error("No UTXOs found at vesting contract address: ",
                 Address.fromHashes(uplcProgram.validatorHash).toBech32);
         }
-        //console.log("tx ", tx);
     }
     
     // Construct the output to send the unlocked funds to
@@ -108,7 +107,6 @@ export default async function unlock (
     tx.addSignatures(signatures);
 
     // Submit the signed tx
-    console.log("tx: ", tx.dump());
     const txHash = await wallet.submitTx(tx);
 
     return {

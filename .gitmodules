@@ -7,3 +7,6 @@
 [submodule "chapter_08/local-devnet/blockfrost-backend-ryo"]
 	path = chapter_08/local-devnet/blockfrost-backend-ryo
 	url = https://github.com/lley154/blockfrost-backend-ryo
+[submodule "chapter_11/helios/vesting-reference-script/lib"]
+	path = chapter_11/helios/vesting-reference-script/lib
+	url = https://github.com/lley154/helios

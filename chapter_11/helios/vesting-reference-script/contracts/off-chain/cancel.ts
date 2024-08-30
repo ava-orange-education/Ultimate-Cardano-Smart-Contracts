@@ -84,9 +84,6 @@ import {
             const vestingRefUtxo = await getVestingRefUtxo(
                 Address.fromHashes(uplcProgram.validatorHash)
             );
-
-            console.log("vestingRefUtxo: ", vestingRefUtxo);
-            console.log("vestingUtxo: ", vestingUtxo);
         
             // Check that UTXO inputs exists
             if (vestingUtxo && vestingRefUtxo) {
@@ -115,7 +112,6 @@ import {
         tx.addSignatures(signatures);
   
         // Submit the signed tx
-        console.log("tx: ", tx.dump());
         const txHash = await wallet.submitTx(tx);
   
         return {
