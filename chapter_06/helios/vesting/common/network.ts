@@ -11,8 +11,8 @@ export {
     network
 }
 
-const network = "mainnet"
-config.set({ ...config, IS_TESTNET: false });
+const network = "preprod"
+config.set({ ...config, IS_TESTNET: true });
 const env = process.env.NEXT_PUBLIC_ENV as string;
 const host = process.env.NEXT_PUBLIC_HOST as string;
 const port = env == "dev" ? process.env.NEXT_PUBLIC_PORT as string : "";
