@@ -7,7 +7,9 @@ import NFTMinting from '../contracts/ticket.hl';
 import { generateMetadata } from '../common/metatdata';
 import {  getNetworkParams,
           getTicketMetadata,
-          getWalletInfo } from '../common/network';
+          getWalletInfo,
+          network 
+} from '../common/network';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Mint from '../components/Mint';
 import WalletConnector from '../components/WalletConnector';
@@ -25,8 +27,6 @@ import {
   WalletHelper,
   MintingPolicyHash} from "@hyperionbt/helios";
 
-// Define the Cardano Network
-const network = "preprod";
 
 // Optimization flag for Helios compiler
 const optimize = false;
@@ -313,7 +313,7 @@ const Home: NextPage = () => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"

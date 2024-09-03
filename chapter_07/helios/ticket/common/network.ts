@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {    TicketInfo,
             WalletInfo } from './types';
+import { config } from "@hyperionbt/helios";
 
 export {
     getNetworkParams,
@@ -9,7 +10,10 @@ export {
     network
 }
 
-const network = "preprod"
+// Define Cardano network
+const network = "mainnet";
+config.set({ ...config, IS_TESTNET: false });
+
 const env = process.env.NEXT_PUBLIC_ENV as string;
 const host = process.env.NEXT_PUBLIC_HOST as string;
 const port = env == "dev" ? process.env.NEXT_PUBLIC_PORT as string : "";
@@ -29,7 +33,7 @@ async function getNetworkParams(network: string) {
     } else if (network === "preprod") {
         networkParamsUrl = "http://localhost:3000/params/preprod.json";
     } else if (network === "mainnet") {
-        networkParamsUrl = "https://d1t0d7c2nekuk0.cloudfront.net/mainnet.json";
+        networkParamsUrl = "http://localhost:3000/params/mainnet.json";
     } else {
         alert("Network not set");
         throw console.error("getNetworkParams: network not set");

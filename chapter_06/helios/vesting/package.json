@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hyperionbt/helios": "^0.16.6",
+    "@hyperionbt/helios": "^0.16.7",
     "axios": "^1.5.1",
     "next": "^14.1.1",
     "react": "^18",

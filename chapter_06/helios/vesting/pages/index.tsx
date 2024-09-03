@@ -7,7 +7,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Lock from '../components/Lock';
 import { 
   getNetworkParams,
-  getVestingUtxo 
+  getVestingUtxo,
+  network 
 } from '../common/network';
 import Unlock from '../components/Unlock';
 import VestingValidator from '../contracts/vesting.hl';
@@ -24,11 +25,9 @@ import {
   Tx,
   WalletHelper} from "@hyperionbt/helios";
 
-// Define the Cardano Network
-const network = "preprod";
 
 // Optimization flag for Helios compiler
-const optimize = false;
+const optimize = true;
 
 const Home: NextPage = () => {
 
@@ -345,7 +344,7 @@ const Home: NextPage = () => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"

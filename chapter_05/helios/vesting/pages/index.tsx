@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 
 import LoadingSpinner from '../components/LoadingSpinner';
 import Lock from '../components/Lock';
-import { getNetworkParams } from '../common/network';
+import { 
+  getNetworkParams,
+  network 
+} from '../common/network';
 import VestingValidator from '../contracts/vesting.hl';
 import WalletConnector from '../components/WalletConnector'
 import WalletInfo from '../components/WalletInfo'
@@ -18,9 +21,6 @@ import {
   TxOutput,
   Tx,
   WalletHelper} from "@hyperionbt/helios";
-
-// Define the Cardano Network
-const network = "preprod";
 
 // Optimization flag for Helios compiler
 const optimize = false;
@@ -167,7 +167,7 @@ const Home: NextPage = () => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"
