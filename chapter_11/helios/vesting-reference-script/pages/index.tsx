@@ -5,7 +5,10 @@ import path from 'path';
 import { useState, useEffect } from 'react';
 
 import Cancel from '../components/Cancel';
-import { getNetworkParams } from '../contracts/off-chain/network';
+import { 
+  getNetworkParams,
+  network 
+} from '../contracts/off-chain/network';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Lock from '../components/Lock';
 import Unlock from '../components/Unlock';
@@ -17,9 +20,6 @@ import {
   NetworkParams,
   WalletHelper} from "@hyperionbt/helios";
 
-import {
-  network
-} from '../contracts/config/settings';
 import { NetworkName } from '../contracts/off-chain/types'
 
 import lock from '../contracts/off-chain/lock';
@@ -234,7 +234,7 @@ const Home: NextPage = (props: any) => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"
