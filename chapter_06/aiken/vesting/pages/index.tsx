@@ -25,7 +25,7 @@ import { Value } from "@anastasia-labs/cardano-multiplatform-lib-browser";
 
 
 // Define the Cardano Network
-const network = "Mainnet";
+const network = "Preprod";
 const blockfrostAPI = process.env.NEXT_PUBLIC_BLOCKFROST_API as string;
 const blockfrostAPIKey = process.env.NEXT_PUBLIC_BLOCKFROST_KEY as string;
 

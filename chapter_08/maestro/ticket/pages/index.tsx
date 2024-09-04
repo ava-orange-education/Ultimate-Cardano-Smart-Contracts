@@ -28,7 +28,7 @@ import {
 } from "@lucid-evolution/utils";
 
 // Define the Cardano Network
-const network = "Mainnet";
+const network = "Preprod";
 const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
 if (!maestroAPIKey) {
   throw console.error("NEXT_PUBLIC_MAESTRO_API_KEY not set");

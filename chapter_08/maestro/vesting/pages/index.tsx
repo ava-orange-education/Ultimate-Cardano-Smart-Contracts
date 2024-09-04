@@ -20,7 +20,7 @@ import { Value } from "@anastasia-labs/cardano-multiplatform-lib-browser";
 
 
 // Define the Cardano Network
-const network = "Mainnet";
+const network = "Preprod";
 const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
 
 if (!maestroAPIKey){

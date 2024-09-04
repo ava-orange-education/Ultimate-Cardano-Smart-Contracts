@@ -12,6 +12,11 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@anastasia-labs/cardano-multiplatform-lib-browser@^5.3.1-7":
+  version "5.3.1"
+  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-5.3.1.tgz"
+  integrity sha512-gzTtzOvWrQkAYzJwfks6Kpj7BSvAe+LHAcO2Cj7q7DhNz2FyhYJmXsvA3URVLGqO7Yi6VNH0yPdPX2824gxQnw==
+
 "@anastasia-labs/cardano-multiplatform-lib-browser@^6.0.1-2":
   version "6.0.1-2"
   resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-6.0.1-2.tgz"
@@ -256,7 +261,7 @@
   resolved "https://registry.npmjs.org/@lucid-evolution/crc8/-/crc8-0.1.8.tgz"
   integrity sha512-88+/S6n+sPgxYtG05rvbJDVb8MoFGzckkR3p26uGrzngYzlJGfxBWIzNhVwfI2mgINPo2C5lkZW3GYnfY0MjuA==
 
-"@lucid-evolution/lucid@^0.3.22":
+"@lucid-evolution/lucid@^0.3.15":
   version "0.3.22"
   resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.22.tgz"
   integrity sha512-Ath72gKq3IMX5/mkWWyWOLddqaMZi3c307Iyqj7fUx/1Wm/ePVpkRvF4l4QtmwWI/hzSAy36iIU34FZNaSf91w==
@@ -275,7 +280,7 @@
     "@lucid-evolution/wallet" "0.1.43"
     effect "^3.5.6"
 
-"@lucid-evolution/plutus@^0.1.22", "@lucid-evolution/plutus@0.1.22":
+"@lucid-evolution/plutus@^0.1.20", "@lucid-evolution/plutus@0.1.22":
   version "0.1.22"
   resolved "https://registry.npmjs.org/@lucid-evolution/plutus/-/plutus-0.1.22.tgz"
   integrity sha512-8g9vm/4rv+v1i9lVGlWQZYqxDey4u+jdOoaGh7PSeztVkIAopmq32Id6qdCCKJvsss9/OantMrFouaptq66Q1Q==
@@ -318,7 +323,7 @@
   resolved "https://registry.npmjs.org/@lucid-evolution/uplc/-/uplc-0.2.11.tgz"
   integrity sha512-c1ByCOEu15wxo48+GEm5wwI6LlFVYQdaTSZFKPvZfKGKDMRbpToYxbKJnSIinI21Z4DID/a0pKmKT8JDBodkhw==
 
-"@lucid-evolution/utils@^0.1.38", "@lucid-evolution/utils@0.1.38":
+"@lucid-evolution/utils@^0.1.36", "@lucid-evolution/utils@0.1.38":
   version "0.1.38"
   resolved "https://registry.npmjs.org/@lucid-evolution/utils/-/utils-0.1.38.tgz"
   integrity sha512-wZeOwK1sojbU3loMfL99qK4fdrbf8UGgu6EUzknNkFwwVsQYWdAFG3pfYJluHxJgX/zjXaZU6gC2e24sO5ivsQ==
