@@ -12,15 +12,15 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@anastasia-labs/cardano-multiplatform-lib-browser@^5.3.1-3", "@anastasia-labs/cardano-multiplatform-lib-browser@^5.3.1-7":
-  version "5.3.1-7"
-  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-5.3.1-7.tgz"
-  integrity sha512-MnEIV6YK/dJETlSotWN8fZ3MlZVf8CIZGfmiVkpUCzazkXzodmn07yTMBsp+pTDyCDcNyahn/nH06cQf5m+HNQ==
+"@anastasia-labs/cardano-multiplatform-lib-browser@^6.0.1-2":
+  version "6.0.1-2"
+  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-6.0.1-2.tgz"
+  integrity sha512-YSzz8MY3hr0oVHYTySi4g9TxLFnZRr8gIyv8mO2resdLFcW+8C+upFpuNXPBn3eCbx11/1INTJHYzktjADffZg==
 
-"@anastasia-labs/cardano-multiplatform-lib-nodejs@^5.3.1-3":
-  version "5.3.1-7"
-  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-nodejs/-/cardano-multiplatform-lib-nodejs-5.3.1-7.tgz"
-  integrity sha512-2jPbsPErUtPoiqbGZj9D79YYzCotMQ/Gez49p5C1fIcqR4WBNRf3Sq3lyhORdcxcvXVtpHW86mKdj5k5paD7/Q==
+"@anastasia-labs/cardano-multiplatform-lib-nodejs@^6.0.1-2":
+  version "6.0.1-2"
+  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-nodejs/-/cardano-multiplatform-lib-nodejs-6.0.1-2.tgz"
+  integrity sha512-pZhWWVy7E4zUR4Ic79uXhpMxgX2fEomOlqkM5UnbeBwXvYCZ8sd191sGlmbe6Sx30cqiqbjx/cc3R5JYRxk8yw==
 
 "@babel/runtime@^7.20.7":
   version "7.23.2"
@@ -29,23 +29,23 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@blockfrost/blockfrost-js@^5.4.0":
-  version "5.4.0"
-  resolved "https://registry.npmjs.org/@blockfrost/blockfrost-js/-/blockfrost-js-5.4.0.tgz"
-  integrity sha512-al9rAlwXFsuLOCoY1yG5ib73BqCzY8hP/oVAIbmLlkRwUut+wDOxv8SDkr4jrW80vW7Grom1TbpNEPSWRqgsUg==
+"@blockfrost/blockfrost-js@^5.5.0":
+  version "5.5.0"
+  resolved "https://registry.npmjs.org/@blockfrost/blockfrost-js/-/blockfrost-js-5.5.0.tgz"
+  integrity sha512-9UZIo6jRDSkRJt1r9sU2YPlz9MC3Ndh/5nCxS04H9B2MIak/jtPoJ3jTvn5dED06P8lPSKPn0QYPsIiJQ+8Kew==
   dependencies:
-    "@blockfrost/openapi" "0.1.59"
-    "@emurgo/cardano-serialization-lib-nodejs" "^11.4.0"
+    "@blockfrost/openapi" "0.1.60"
+    "@emurgo/cardano-serialization-lib-nodejs" "^11.5.0"
     "@emurgo/cip14-js" "3.0.1"
     bottleneck "^2.19.5"
     form-data "^4.0.0"
     got "^11.8.6"
     json-bigint "^1.0.0"
 
-"@blockfrost/openapi@0.1.59":
-  version "0.1.59"
-  resolved "https://registry.npmjs.org/@blockfrost/openapi/-/openapi-0.1.59.tgz"
-  integrity sha512-Ia3pwPekwOFQDYJZtPch6N9ZcL35R0lEoIxqsXun/M4nE89eM09fORCVWnQy9QjaADDFA5tSIJqhg3L7wHtUKA==
+"@blockfrost/openapi@0.1.60":
+  version "0.1.60"
+  resolved "https://registry.npmjs.org/@blockfrost/openapi/-/openapi-0.1.60.tgz"
+  integrity sha512-Q4hebu5NkWBi4TEn3kKNqExCDk/YYel10QfLCBbY+39pr0/RUC/AzMCq4bwAkO6I168LOnl8A3WWjJt8+iwjaQ==
   dependencies:
     ajv "^8.11.2"
     cbor "^8.1.0"
@@ -93,7 +93,7 @@
   resolved "https://registry.npmjs.org/@emurgo/cardano-serialization-lib-browser/-/cardano-serialization-lib-browser-11.5.0.tgz"
   integrity sha512-qchOJ9NYDUz10tzs5r5QhP9hK0p+ZOlRiBwPdTAxqAYLw/8emYBkQQLaS8T1DF6EkeudyrgS00ym5Trw1fo4iA==
 
-"@emurgo/cardano-serialization-lib-nodejs@^11.4.0", "@emurgo/cardano-serialization-lib-nodejs@^11.5.0":
+"@emurgo/cardano-serialization-lib-nodejs@^11.5.0":
   version "11.5.0"
   resolved "https://registry.npmjs.org/@emurgo/cardano-serialization-lib-nodejs/-/cardano-serialization-lib-nodejs-11.5.0.tgz"
   integrity sha512-IlVABlRgo9XaTR1NunwZpWcxnfEv04ba2l1vkUz4S1W7Jt36F4CtffP+jPeqBZGnAe+fnUwo0XjIJC3ZTNToNQ==
@@ -265,120 +265,120 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lucid-evolution/core-types@0.1.14":
-  version "0.1.14"
-  resolved "https://registry.npmjs.org/@lucid-evolution/core-types/-/core-types-0.1.14.tgz"
-  integrity sha512-hki8OdmcdSQwzMFJkieDH++2eH4EoovIANlM03sAFk49sKatR6SxLsXZ592sJBDiO4mKxT1WZodTiCrDal74HA==
+"@lucid-evolution/core-types@0.1.16":
+  version "0.1.16"
+  resolved "https://registry.npmjs.org/@lucid-evolution/core-types/-/core-types-0.1.16.tgz"
+  integrity sha512-x806ImNUFs02ISUwvBnM9qEEJP/29BsYHDChQPf0WlB2YZQrpFv0oXo8PNxNcw5vyeF4OKp3rFf3TJpOKhjWfQ==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
 
-"@lucid-evolution/core-utils@0.1.13":
-  version "0.1.13"
-  resolved "https://registry.npmjs.org/@lucid-evolution/core-utils/-/core-utils-0.1.13.tgz"
-  integrity sha512-ziDHe03ICoyEniBZcPbfJmS6kpJ3dMqxoTgby6JQveKmgSp+kQl38n+CYOwICQFLcGl/klHSzTJsNcPWERqaAA==
+"@lucid-evolution/core-utils@0.1.14":
+  version "0.1.14"
+  resolved "https://registry.npmjs.org/@lucid-evolution/core-utils/-/core-utils-0.1.14.tgz"
+  integrity sha512-YpVnIa3n3DKOxThdjTznYSi5Io+4GJDRrrtm4VbiX2FbulG10Lvq4klIc0Zwo+atmpJ0C+yiCQIaCKflsdot2Q==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
 
 "@lucid-evolution/crc8@0.1.8":
   version "0.1.8"
   resolved "https://registry.npmjs.org/@lucid-evolution/crc8/-/crc8-0.1.8.tgz"
   integrity sha512-88+/S6n+sPgxYtG05rvbJDVb8MoFGzckkR3p26uGrzngYzlJGfxBWIzNhVwfI2mgINPo2C5lkZW3GYnfY0MjuA==
 
-"@lucid-evolution/lucid@^0.3.16":
-  version "0.3.16"
-  resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.16.tgz"
-  integrity sha512-ZuzJ22EeTYCsLVDRzPjI4u7cu1LN820nCU4FZXpdPZ0tS/Is0jRr4GZuNMhj03/WknKIfjya+QTi3Qwv1Bkolg==
+"@lucid-evolution/lucid@^0.3.22":
+  version "0.3.22"
+  resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.22.tgz"
+  integrity sha512-Ath72gKq3IMX5/mkWWyWOLddqaMZi3c307Iyqj7fUx/1Wm/ePVpkRvF4l4QtmwWI/hzSAy36iIU34FZNaSf91w==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
     "@effect/schema" "^0.66.14"
     "@emurgo/cardano-message-signing-nodejs" "^1.0.1"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
-    "@lucid-evolution/plutus" "0.1.20"
-    "@lucid-evolution/provider" "0.1.45"
-    "@lucid-evolution/sign_data" "0.1.17"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/plutus" "0.1.22"
+    "@lucid-evolution/provider" "0.1.49"
+    "@lucid-evolution/sign_data" "0.1.19"
     "@lucid-evolution/uplc" "0.2.11"
-    "@lucid-evolution/utils" "0.1.36"
-    "@lucid-evolution/wallet" "0.1.40"
+    "@lucid-evolution/utils" "0.1.38"
+    "@lucid-evolution/wallet" "0.1.43"
     effect "^3.5.6"
 
-"@lucid-evolution/plutus@^0.1.20", "@lucid-evolution/plutus@0.1.20":
-  version "0.1.20"
-  resolved "https://registry.npmjs.org/@lucid-evolution/plutus/-/plutus-0.1.20.tgz"
-  integrity sha512-5MI6EBiIZ27gnOEpBxFz8Cl1NHGYfb9TF5qDbyjpY0moWhqonGBcCLtFlUDROCXqlWt5w6EiyNfEWhWwxI3tKQ==
+"@lucid-evolution/plutus@^0.1.22", "@lucid-evolution/plutus@0.1.22":
+  version "0.1.22"
+  resolved "https://registry.npmjs.org/@lucid-evolution/plutus/-/plutus-0.1.22.tgz"
+  integrity sha512-8g9vm/4rv+v1i9lVGlWQZYqxDey4u+jdOoaGh7PSeztVkIAopmq32Id6qdCCKJvsss9/OantMrFouaptq66Q1Q==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
     "@sinclair/typebox" "^0.32.28"
 
-"@lucid-evolution/provider@0.1.45":
-  version "0.1.45"
-  resolved "https://registry.npmjs.org/@lucid-evolution/provider/-/provider-0.1.45.tgz"
-  integrity sha512-yH0ifZo5cSlj5CJNwRecXB5fDtil/ibllsMuA0gCUAaxM/D2zueC12ee8F9TQFRL3cgbYUBqzgc+SOewvYdC4g==
+"@lucid-evolution/provider@0.1.49":
+  version "0.1.49"
+  resolved "https://registry.npmjs.org/@lucid-evolution/provider/-/provider-0.1.49.tgz"
+  integrity sha512-GOCH4QWwAwyJohZqg8/vLDOjfJ+iHWcCp57h2Bv+HUitjWtnh1QlIg1xZPq+/FtZvE4HDF81O/0Qki6WiA/RAg==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
     "@effect/platform" "^0.59.2"
     "@effect/schema" "^0.68.26"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
-    "@lucid-evolution/utils" "0.1.36"
-    "@lucid-evolution/wallet" "0.1.40"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/utils" "0.1.38"
+    "@lucid-evolution/wallet" "0.1.43"
     effect "^3.5.6"
 
-"@lucid-evolution/sign_data@0.1.17":
-  version "0.1.17"
-  resolved "https://registry.npmjs.org/@lucid-evolution/sign_data/-/sign_data-0.1.17.tgz"
-  integrity sha512-R3R18uVzS3cyaIqpssEhjyR4QV6xMY2LK02qwFBciJr7yAhG5SJCBfR/1bvPvnTHaeKiIcd98e2TZONsyo+YMg==
+"@lucid-evolution/sign_data@0.1.19":
+  version "0.1.19"
+  resolved "https://registry.npmjs.org/@lucid-evolution/sign_data/-/sign_data-0.1.19.tgz"
+  integrity sha512-+jGLmacSwcOnG4QtIILfpMgEyXlPCTzsZBXdIz0HQywwQ/x0UQ6w5h23MvWXFA/RYumfkiqe6EFgHeCkM+NaCw==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
     "@emurgo/cardano-message-signing-browser" "^1.0.1"
     "@emurgo/cardano-message-signing-nodejs" "^1.0.1"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
 
 "@lucid-evolution/uplc@0.2.11":
   version "0.2.11"
   resolved "https://registry.npmjs.org/@lucid-evolution/uplc/-/uplc-0.2.11.tgz"
   integrity sha512-c1ByCOEu15wxo48+GEm5wwI6LlFVYQdaTSZFKPvZfKGKDMRbpToYxbKJnSIinI21Z4DID/a0pKmKT8JDBodkhw==
 
-"@lucid-evolution/utils@^0.1.36", "@lucid-evolution/utils@0.1.36":
-  version "0.1.36"
-  resolved "https://registry.npmjs.org/@lucid-evolution/utils/-/utils-0.1.36.tgz"
-  integrity sha512-uKRflp8apkP25yjhenPV5Ayfo4D6AXr6Q1qa1FDeLBZLsqGJiTYDnELSLZOuzNqtvb0rbTtuUuwdTGBvCXljBA==
+"@lucid-evolution/utils@^0.1.38", "@lucid-evolution/utils@0.1.38":
+  version "0.1.38"
+  resolved "https://registry.npmjs.org/@lucid-evolution/utils/-/utils-0.1.38.tgz"
+  integrity sha512-wZeOwK1sojbU3loMfL99qK4fdrbf8UGgu6EUzknNkFwwVsQYWdAFG3pfYJluHxJgX/zjXaZU6gC2e24sO5ivsQ==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-browser" "^5.3.1-3"
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
     "@effect/schema" "^0.68.16"
     "@emurgo/cardano-serialization-lib-browser" "^11.5.0"
     "@emurgo/cardano-serialization-lib-nodejs" "^11.5.0"
     "@harmoniclabs/plutus-data" "^1.2.4"
     "@harmoniclabs/uplc" "^1.2.4"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
     "@lucid-evolution/crc8" "0.1.8"
-    "@lucid-evolution/plutus" "0.1.20"
+    "@lucid-evolution/plutus" "0.1.22"
     "@lucid-evolution/uplc" "0.2.11"
     bip39 "^3.1.0"
     cborg "^4.2.0"
     effect "^3.1.2"
 
-"@lucid-evolution/wallet@0.1.40":
-  version "0.1.40"
-  resolved "https://registry.npmjs.org/@lucid-evolution/wallet/-/wallet-0.1.40.tgz"
-  integrity sha512-hGaAb+yh87tuLYb+5LCZFrOlqFfswV9/jtvdhYgkTRynS/AFHkvDmaOi7BAiINbPY7+vZPNPek90kDMRUwdN6w==
+"@lucid-evolution/wallet@0.1.43":
+  version "0.1.43"
+  resolved "https://registry.npmjs.org/@lucid-evolution/wallet/-/wallet-0.1.43.tgz"
+  integrity sha512-8iAVfs7FjBbylil1LjBGXWot3Ql2AqfhCo8eNa6hBVeDzmLoGAzYyIxtVgCv2660yRAjlKzBkfmPjKbKLhf9RA==
   dependencies:
-    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^5.3.1-3"
-    "@lucid-evolution/core-types" "0.1.14"
-    "@lucid-evolution/core-utils" "0.1.13"
-    "@lucid-evolution/sign_data" "0.1.17"
-    "@lucid-evolution/utils" "0.1.36"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/sign_data" "0.1.19"
+    "@lucid-evolution/utils" "0.1.38"
     bip39 "^3.1.0"
 
 "@next/env@14.1.1":
@@ -404,9 +404,9 @@
   integrity sha512-YAZLGsaNeChSrpz/G7MxO3TIBLaMN8QWMr3X8bt6rCvKovwU7GqQlDu99WdvF33kI8ZahvcdbFsy4jAFzFX7og==
 
 "@noble/hashes@^1.2.0":
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/@noble/hashes/-/hashes-1.4.0.tgz"
-  integrity sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg==
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/@noble/hashes/-/hashes-1.5.0.tgz"
+  integrity sha512-1j6kQFb7QRru7eKN3ZDvRcP13rugwdxZqCjbiAVZfIJwgj2A65UmT4TgARXGlXgnRkORLTDTrO19ZErt7+QXgA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -596,14 +596,14 @@ ajv@^6.12.4:
     uri-js "^4.2.2"
 
 ajv@^8.11.2:
-  version "8.12.0"
-  resolved "https://registry.npmjs.org/ajv/-/ajv-8.12.0.tgz"
-  integrity sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==
+  version "8.17.1"
+  resolved "https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz"
+  integrity sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==
   dependencies:
-    fast-deep-equal "^3.1.1"
+    fast-deep-equal "^3.1.3"
+    fast-uri "^3.0.1"
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
-    uri-js "^4.2.2"
 
 ansi-regex@^5.0.1:
   version "5.0.1"
@@ -1460,6 +1460,11 @@ fast-levenshtein@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
+
+fast-uri@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/fast-uri/-/fast-uri-3.0.1.tgz"
+  integrity sha512-MWipKbbYiYI0UC7cl8m/i/IWTqfC8YXsqjzybjddLsFjStroQzsHXkc73JutMvBiXmOvapk+axIl79ig5t55Bw==
 
 fastq@^1.6.0:
   version "1.15.0"

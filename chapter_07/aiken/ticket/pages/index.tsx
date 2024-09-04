@@ -21,10 +21,13 @@ import {
 import { Blockfrost } from "@lucid-evolution/provider";
 import { WalletApi } from "@lucid-evolution/core-types";
 import { Constr, Data } from "@lucid-evolution/plutus";
-import { applyParamsToScript, applyDoubleCborEncoding } from "@lucid-evolution/utils";
+import { 
+  applyParamsToScript, 
+  applyDoubleCborEncoding 
+} from "@lucid-evolution/utils";
 
 // Define the Cardano Network
-const network = "Preprod";
+const network = "Mainnet";
 const blockfrostAPI = process.env.NEXT_PUBLIC_BLOCKFROST_API as string;
 const blockfrostAPIKey = process.env.NEXT_PUBLIC_BLOCKFROST_KEY as string;
 
@@ -273,7 +276,7 @@ const Home: NextPage = (props: any) => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "Mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"

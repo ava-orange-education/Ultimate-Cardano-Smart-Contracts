@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { fromText } from 'lucid-cardano';
+import { fromText } from '@lucid-evolution/lucid';
 import { MaestroClient, Configuration, AssetInfo } from "@maestro-org/typescript-sdk";
 
 import { TicketInfo } from '../../common/types';
@@ -36,7 +36,7 @@ const getMetadata = async (asset: string): Promise <AssetInfo|undefined> => {
     }
   }); 
   if (assetInfo) {
-      return assetInfo.data.data;
+      return assetInfo.data;
   }
 }
 

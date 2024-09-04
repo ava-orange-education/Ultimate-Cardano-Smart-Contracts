@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@anastasia-labs/cardano-multiplatform-lib-browser": "^5.3.1-7",
-    "@blockfrost/blockfrost-js": "^5.4.0",
-    "@lucid-evolution/lucid": "^0.3.16",
-    "@lucid-evolution/plutus": "^0.1.20",
-    "@lucid-evolution/utils": "^0.1.36",
+    "@anastasia-labs/cardano-multiplatform-lib-browser": "^6.0.1-2",
+    "@blockfrost/blockfrost-js": "^5.5.0",
+    "@lucid-evolution/lucid": "^0.3.22",
+    "@lucid-evolution/plutus": "^0.1.22",
+    "@lucid-evolution/utils": "^0.1.38",
     "axios": "^1.6.1",
     "next": "^14.1.1",
     "react": "18.2.0",

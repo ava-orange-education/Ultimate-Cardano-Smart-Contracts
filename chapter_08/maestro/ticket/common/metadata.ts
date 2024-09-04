@@ -11,7 +11,7 @@ export {
  * @param {bigint} qty
  * @param {string} utxoId
  * @param {number} utxoIdx   
- * @returns {string} label 721 metadata 
+ * @returns {Object} label 721 metadata 
  */
 function generateMetadata(
   policyId: string,
@@ -22,34 +22,31 @@ function generateMetadata(
   utxoId: string,
   utxoIdx: number,
 
-): JSON {
+) {
  
-  // Generate the metadata
-  const metadata =  
-    `{
-        "`+ policyId +`": {
-            "Project": "Ticket",
-            "Designer": "Ada Lovelace",
-            "files": [
-              {
-                "mediaType": "image/png",
-                "name": "Final",
-                "src": "ipfs://` + image +`"
-              }
-            ],
-            "`+ tokenName +`": {
-            "image": "ipfs://` + image +`",
-            "mediaType": "image/png",
-            "name": "`+ tokenName +`",
-            "description": "`+ description +`",
-            "decimals": "0",
-            "qty": "`+ qty +`",
-            "utxoId": "`+ utxoId + `",
-            "utxoIdx": "`+ utxoIdx +`"
-          }
-        }
-      }`;
-    
-  return JSON.parse(metadata);
+  const metadata = 
+  { [policyId] : {
+      "Project": "Ticket",
+      "Designer": "Ada Lovelace",
+      "files": [
+                  {
+                    "mediaType": "image/png",
+                    "name": tokenName,
+                    "src": image
+                  }
+                ],
+      [tokenName]: {
+        "image": image,
+        "mediaType": "image/png",
+        "name": tokenName,
+        "description": description,
+        "decimals": "0",
+        "qty": qty.toString(),
+        "utxoId": utxoId,
+        "utxoIdx": utxoIdx.toString()
+      }
+    }
+  };
+
+  return metadata;
 }
-  

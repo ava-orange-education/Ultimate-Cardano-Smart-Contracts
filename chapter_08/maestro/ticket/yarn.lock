@@ -12,12 +12,69 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@anastasia-labs/cardano-multiplatform-lib-browser@^6.0.1-2":
+  version "6.0.1-2"
+  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-6.0.1-2.tgz"
+  integrity sha512-YSzz8MY3hr0oVHYTySi4g9TxLFnZRr8gIyv8mO2resdLFcW+8C+upFpuNXPBn3eCbx11/1INTJHYzktjADffZg==
+
+"@anastasia-labs/cardano-multiplatform-lib-nodejs@^6.0.1-2":
+  version "6.0.1-2"
+  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-nodejs/-/cardano-multiplatform-lib-nodejs-6.0.1-2.tgz"
+  integrity sha512-pZhWWVy7E4zUR4Ic79uXhpMxgX2fEomOlqkM5UnbeBwXvYCZ8sd191sGlmbe6Sx30cqiqbjx/cc3R5JYRxk8yw==
+
 "@babel/runtime@^7.20.7":
   version "7.23.2"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.23.2.tgz"
   integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
   dependencies:
     regenerator-runtime "^0.14.0"
+
+"@effect/platform@^0.59.2":
+  version "0.59.3"
+  resolved "https://registry.npmjs.org/@effect/platform/-/platform-0.59.3.tgz"
+  integrity sha512-DHR4Hl+hhTCzjs1ykRIyzwaala4JMtPVnReLea29hn+M3fKzloic7UpyCkTO7aJdFjthUtAKcW2mr2lDtuqlDA==
+  dependencies:
+    find-my-way-ts "^0.1.5"
+    multipasta "^0.2.2"
+
+"@effect/schema@^0.66.14":
+  version "0.66.16"
+  resolved "https://registry.npmjs.org/@effect/schema/-/schema-0.66.16.tgz"
+  integrity sha512-sT/k5NOgKslGPzs3DUaCFuM6g2JQoIIT8jpwEorAZooplPIMK2xIspr7ECz6pp6Dc7Wz/ppXGk7HVyGZQsIYEQ==
+
+"@effect/schema@^0.68.16":
+  version "0.68.27"
+  resolved "https://registry.npmjs.org/@effect/schema/-/schema-0.68.27.tgz"
+  integrity sha512-/rmIb+4QaQTecdTfeYSZtNikIV+BeIbYDl/hpgBTaS96en7pKNW5hcygFQhdocjKguIL7Y/be+oUrVafWV60ew==
+  dependencies:
+    fast-check "^3.20.0"
+
+"@effect/schema@^0.68.26", "@effect/schema@^0.68.27":
+  version "0.68.27"
+  resolved "https://registry.npmjs.org/@effect/schema/-/schema-0.68.27.tgz"
+  integrity sha512-/rmIb+4QaQTecdTfeYSZtNikIV+BeIbYDl/hpgBTaS96en7pKNW5hcygFQhdocjKguIL7Y/be+oUrVafWV60ew==
+  dependencies:
+    fast-check "^3.20.0"
+
+"@emurgo/cardano-message-signing-browser@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@emurgo/cardano-message-signing-browser/-/cardano-message-signing-browser-1.0.1.tgz"
+  integrity sha512-yC4Ymq44WR0bXO1wzxCoyc2W/RD1KSAla0oYhin7IYoVkp2raGp8wt7QNF4pDdNnTcejn5fyPyYY9dL4666H1w==
+
+"@emurgo/cardano-message-signing-nodejs@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@emurgo/cardano-message-signing-nodejs/-/cardano-message-signing-nodejs-1.0.1.tgz"
+  integrity sha512-PoKh1tQnJX18f8iEr8Jk1KXxKCn9eqaSslMI1pyOJvYRJhQVDLCh0+9YReufjp0oFJIY1ShcrR+4/WnECVZUKQ==
+
+"@emurgo/cardano-serialization-lib-browser@^11.5.0":
+  version "11.5.0"
+  resolved "https://registry.npmjs.org/@emurgo/cardano-serialization-lib-browser/-/cardano-serialization-lib-browser-11.5.0.tgz"
+  integrity sha512-qchOJ9NYDUz10tzs5r5QhP9hK0p+ZOlRiBwPdTAxqAYLw/8emYBkQQLaS8T1DF6EkeudyrgS00ym5Trw1fo4iA==
+
+"@emurgo/cardano-serialization-lib-nodejs@^11.5.0":
+  version "11.5.0"
+  resolved "https://registry.npmjs.org/@emurgo/cardano-serialization-lib-nodejs/-/cardano-serialization-lib-nodejs-11.5.0.tgz"
+  integrity sha512-IlVABlRgo9XaTR1NunwZpWcxnfEv04ba2l1vkUz4S1W7Jt36F4CtffP+jPeqBZGnAe+fnUwo0XjIJC3ZTNToNQ==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
@@ -50,6 +107,82 @@
   version "8.52.0"
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.52.0.tgz"
   integrity sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==
+
+"@harmoniclabs/bigint-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/bigint-utils/-/bigint-utils-1.0.0.tgz"
+  integrity sha512-OhZMHcdtH2hHKMlxWFHf71PmKHdoi9ARpjS9mUu0/cd8VWDDjT7VQoQwC5NN/68iyO4O5Dojrvrp9tjG5BDABA==
+  dependencies:
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/biguint@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/biguint/-/biguint-1.0.0.tgz"
+  integrity sha512-5DyCIBDL4W+7ffR1IJSbGrCG4xEYxAlFH5gCNF42qtyL5ltwZ92Ae1MyXpHM2TUPy7ocSTqlLUsOdy+SvqVVPw==
+
+"@harmoniclabs/bitstream@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/bitstream/-/bitstream-1.0.0.tgz"
+  integrity sha512-Ed/I46IuCiytE5QiMmmUo9kPJcypM7OuUqoRaAXUALL5C6LKLpT6kYE1qeuhLkx2/WvkHT18jcOX6jhM/nmqoA==
+  dependencies:
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/bytestring@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/bytestring/-/bytestring-1.0.0.tgz"
+  integrity sha512-d5m10O0okKc6QNX0pSRriFTkk/kNMnMBGbo5X3kEZwKaXTI4tDVoTZBL7bwbYHwOEdSxWJjVtlO9xtB7ZrYZNg==
+  dependencies:
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/cbor@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/cbor/-/cbor-1.3.0.tgz"
+  integrity sha512-gzRqqcJL8sulc2/6iqRXZdWUCEeK3A+jwJ88sbVNzgk4IeMFQLSFg4Ck8ZBETu/W/q1zdknjNfJYyH1OxVriQA==
+  dependencies:
+    "@harmoniclabs/bytestring" "^1.0.0"
+    "@harmoniclabs/obj-utils" "^1.0.0"
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/crypto@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.npmjs.org/@harmoniclabs/crypto/-/crypto-0.2.4.tgz"
+  integrity sha512-aVehpKFvgbzFn2qCoRHnrUHAB6XxU1YN61+2Tygo7T6oY3zubI0CI8Ydn2ELp2gidUaFzkICOKFZnAfq6Hxa3w==
+  dependencies:
+    "@harmoniclabs/bitstream" "^1.0.0"
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/obj-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/obj-utils/-/obj-utils-1.0.0.tgz"
+  integrity sha512-EO1bQBZAORrutcP+leP5YNDwNd/9TOE23VEvs3ktniXg6w0knUrLjUIl2Pkcbs/D1VQxqmsNpXho+vaMj00qxA==
+
+"@harmoniclabs/pair@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/pair/-/pair-1.0.0.tgz"
+  integrity sha512-D9OBowsUsy1LctHxWzd9AngTzoo5x3rBiJ0gu579t41Q23pb+VNx1euEfluUEiaYbgljcl1lb/4D1fFTZd1tRQ==
+
+"@harmoniclabs/plutus-data@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.npmjs.org/@harmoniclabs/plutus-data/-/plutus-data-1.2.4.tgz"
+  integrity sha512-cpr6AnJRultH6PJRDriewHEgNLQs2IGLampZrLjmK5shzTsHICD0yD0Zig9eKdcS7dmY6mlzvSpAJWPGeTxbCA==
+  dependencies:
+    "@harmoniclabs/biguint" "^1.0.0"
+    "@harmoniclabs/crypto" "^0.2.4"
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
+
+"@harmoniclabs/uint8array-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@harmoniclabs/uint8array-utils/-/uint8array-utils-1.0.0.tgz"
+  integrity sha512-KNlgXCRGjmD3O+LYa3yTe3yKg8WY6C/bLs4Ywbjp7C9ORVxfppZDBd02LeK6jcIf800zadvJp+Bxk9qO+IcAQg==
+
+"@harmoniclabs/uplc@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.npmjs.org/@harmoniclabs/uplc/-/uplc-1.2.4.tgz"
+  integrity sha512-Px6utj94cO/hQd9NJgVQI8zycsbgh3rAzDeLdZ1m52bo++EuU1GL+arWX3JYso3/3uNrnUFuizjrAIISwQe3Fg==
+  dependencies:
+    "@harmoniclabs/bigint-utils" "^1.0.0"
+    "@harmoniclabs/bitstream" "^1.0.0"
+    "@harmoniclabs/uint8array-utils" "^1.0.0"
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
@@ -102,10 +235,126 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@maestro-org/typescript-sdk@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@maestro-org/typescript-sdk/-/typescript-sdk-1.3.0.tgz"
-  integrity sha512-mxWU0zOlVQHr4kDVk3l7lxcHoJ35IPUrgeJxDiniCJfDaTiCgwq3j/FVCqaW95q/eVhBARFt/X4lzoOvs3yHdQ==
+"@lucid-evolution/core-types@0.1.16":
+  version "0.1.16"
+  resolved "https://registry.npmjs.org/@lucid-evolution/core-types/-/core-types-0.1.16.tgz"
+  integrity sha512-x806ImNUFs02ISUwvBnM9qEEJP/29BsYHDChQPf0WlB2YZQrpFv0oXo8PNxNcw5vyeF4OKp3rFf3TJpOKhjWfQ==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+
+"@lucid-evolution/core-utils@0.1.14":
+  version "0.1.14"
+  resolved "https://registry.npmjs.org/@lucid-evolution/core-utils/-/core-utils-0.1.14.tgz"
+  integrity sha512-YpVnIa3n3DKOxThdjTznYSi5Io+4GJDRrrtm4VbiX2FbulG10Lvq4klIc0Zwo+atmpJ0C+yiCQIaCKflsdot2Q==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+
+"@lucid-evolution/crc8@0.1.8":
+  version "0.1.8"
+  resolved "https://registry.npmjs.org/@lucid-evolution/crc8/-/crc8-0.1.8.tgz"
+  integrity sha512-88+/S6n+sPgxYtG05rvbJDVb8MoFGzckkR3p26uGrzngYzlJGfxBWIzNhVwfI2mgINPo2C5lkZW3GYnfY0MjuA==
+
+"@lucid-evolution/lucid@^0.3.22":
+  version "0.3.22"
+  resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.22.tgz"
+  integrity sha512-Ath72gKq3IMX5/mkWWyWOLddqaMZi3c307Iyqj7fUx/1Wm/ePVpkRvF4l4QtmwWI/hzSAy36iIU34FZNaSf91w==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@effect/schema" "^0.66.14"
+    "@emurgo/cardano-message-signing-nodejs" "^1.0.1"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/plutus" "0.1.22"
+    "@lucid-evolution/provider" "0.1.49"
+    "@lucid-evolution/sign_data" "0.1.19"
+    "@lucid-evolution/uplc" "0.2.11"
+    "@lucid-evolution/utils" "0.1.38"
+    "@lucid-evolution/wallet" "0.1.43"
+    effect "^3.5.6"
+
+"@lucid-evolution/plutus@^0.1.22", "@lucid-evolution/plutus@0.1.22":
+  version "0.1.22"
+  resolved "https://registry.npmjs.org/@lucid-evolution/plutus/-/plutus-0.1.22.tgz"
+  integrity sha512-8g9vm/4rv+v1i9lVGlWQZYqxDey4u+jdOoaGh7PSeztVkIAopmq32Id6qdCCKJvsss9/OantMrFouaptq66Q1Q==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@sinclair/typebox" "^0.32.28"
+
+"@lucid-evolution/provider@0.1.49":
+  version "0.1.49"
+  resolved "https://registry.npmjs.org/@lucid-evolution/provider/-/provider-0.1.49.tgz"
+  integrity sha512-GOCH4QWwAwyJohZqg8/vLDOjfJ+iHWcCp57h2Bv+HUitjWtnh1QlIg1xZPq+/FtZvE4HDF81O/0Qki6WiA/RAg==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@effect/platform" "^0.59.2"
+    "@effect/schema" "^0.68.26"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/utils" "0.1.38"
+    "@lucid-evolution/wallet" "0.1.43"
+    effect "^3.5.6"
+
+"@lucid-evolution/sign_data@0.1.19":
+  version "0.1.19"
+  resolved "https://registry.npmjs.org/@lucid-evolution/sign_data/-/sign_data-0.1.19.tgz"
+  integrity sha512-+jGLmacSwcOnG4QtIILfpMgEyXlPCTzsZBXdIz0HQywwQ/x0UQ6w5h23MvWXFA/RYumfkiqe6EFgHeCkM+NaCw==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@emurgo/cardano-message-signing-browser" "^1.0.1"
+    "@emurgo/cardano-message-signing-nodejs" "^1.0.1"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+
+"@lucid-evolution/uplc@0.2.11":
+  version "0.2.11"
+  resolved "https://registry.npmjs.org/@lucid-evolution/uplc/-/uplc-0.2.11.tgz"
+  integrity sha512-c1ByCOEu15wxo48+GEm5wwI6LlFVYQdaTSZFKPvZfKGKDMRbpToYxbKJnSIinI21Z4DID/a0pKmKT8JDBodkhw==
+
+"@lucid-evolution/utils@^0.1.38", "@lucid-evolution/utils@0.1.38":
+  version "0.1.38"
+  resolved "https://registry.npmjs.org/@lucid-evolution/utils/-/utils-0.1.38.tgz"
+  integrity sha512-wZeOwK1sojbU3loMfL99qK4fdrbf8UGgu6EUzknNkFwwVsQYWdAFG3pfYJluHxJgX/zjXaZU6gC2e24sO5ivsQ==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@effect/schema" "^0.68.16"
+    "@emurgo/cardano-serialization-lib-browser" "^11.5.0"
+    "@emurgo/cardano-serialization-lib-nodejs" "^11.5.0"
+    "@harmoniclabs/plutus-data" "^1.2.4"
+    "@harmoniclabs/uplc" "^1.2.4"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/crc8" "0.1.8"
+    "@lucid-evolution/plutus" "0.1.22"
+    "@lucid-evolution/uplc" "0.2.11"
+    bip39 "^3.1.0"
+    cborg "^4.2.0"
+    effect "^3.1.2"
+
+"@lucid-evolution/wallet@0.1.43":
+  version "0.1.43"
+  resolved "https://registry.npmjs.org/@lucid-evolution/wallet/-/wallet-0.1.43.tgz"
+  integrity sha512-8iAVfs7FjBbylil1LjBGXWot3Ql2AqfhCo8eNa6hBVeDzmLoGAzYyIxtVgCv2660yRAjlKzBkfmPjKbKLhf9RA==
+  dependencies:
+    "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
+    "@lucid-evolution/core-types" "0.1.16"
+    "@lucid-evolution/core-utils" "0.1.14"
+    "@lucid-evolution/sign_data" "0.1.19"
+    "@lucid-evolution/utils" "0.1.38"
+    bip39 "^3.1.0"
+
+"@maestro-org/typescript-sdk@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.npmjs.org/@maestro-org/typescript-sdk/-/typescript-sdk-1.6.1.tgz"
+  integrity sha512-vG/viHcloA3SxIw05yYcO1es5NMZ4KkYbDGBvAWJe/qwMpEqRC96jpO2ElaAOl+J+tBIirHz7zbjz+m9GBrlfQ==
   dependencies:
     axios "^1.6.1"
 
@@ -131,6 +380,11 @@
   resolved "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-14.1.1.tgz"
   integrity sha512-YAZLGsaNeChSrpz/G7MxO3TIBLaMN8QWMr3X8bt6rCvKovwU7GqQlDu99WdvF33kI8ZahvcdbFsy4jAFzFX7og==
 
+"@noble/hashes@^1.2.0":
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/@noble/hashes/-/hashes-1.5.0.tgz"
+  integrity sha512-1j6kQFb7QRru7eKN3ZDvRcP13rugwdxZqCjbiAVZfIJwgj2A65UmT4TgARXGlXgnRkORLTDTrO19ZErt7+QXgA==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -152,37 +406,15 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@peculiar/asn1-schema@^2.3.6":
-  version "2.3.8"
-  resolved "https://registry.npmjs.org/@peculiar/asn1-schema/-/asn1-schema-2.3.8.tgz"
-  integrity sha512-ULB1XqHKx1WBU/tTFIA+uARuRoBVZ4pNdOA878RDrRbBfBGcSzi5HBkdScC6ZbHn8z7L8gmKCgPC1LHRrP46tA==
-  dependencies:
-    asn1js "^3.0.5"
-    pvtsutils "^1.3.5"
-    tslib "^2.6.2"
-
-"@peculiar/json-schema@^1.1.12":
-  version "1.1.12"
-  resolved "https://registry.npmjs.org/@peculiar/json-schema/-/json-schema-1.1.12.tgz"
-  integrity sha512-coUfuoMeIB7B8/NMekxaDzLhaYmp0HZNPEjYRm9goRou8UZIC3z21s0sL9AWoCw4EG876QyO3kYrc61WNF9B/w==
-  dependencies:
-    tslib "^2.0.0"
-
-"@peculiar/webcrypto@^1.4.0":
-  version "1.4.3"
-  resolved "https://registry.npmjs.org/@peculiar/webcrypto/-/webcrypto-1.4.3.tgz"
-  integrity sha512-VtaY4spKTdN5LjJ04im/d/joXuvLbQdgy5Z4DXF4MFZhQ+MTrejbNMkfZBp1Bs3O5+bFqnJgyGdPuZQflvIa5A==
-  dependencies:
-    "@peculiar/asn1-schema" "^2.3.6"
-    "@peculiar/json-schema" "^1.1.12"
-    pvtsutils "^1.3.2"
-    tslib "^2.5.0"
-    webcrypto-core "^1.7.7"
-
 "@rushstack/eslint-patch@^1.3.3":
   version "1.5.1"
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.5.1.tgz"
   integrity sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==
+
+"@sinclair/typebox@^0.32.28":
+  version "0.32.35"
+  resolved "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.32.35.tgz"
+  integrity sha512-Ul3YyOTU++to8cgNkttakC0dWvpERr6RYoHO2W47DLbFvrwBDJUY31B1sImH6JZSYc4Kt4PyHtoPNu+vL2r2dA==
 
 "@swc/helpers@0.5.2":
   version "0.5.2"
@@ -420,15 +652,6 @@ arraybuffer.prototype.slice@^1.0.2:
     is-array-buffer "^3.0.2"
     is-shared-array-buffer "^1.0.2"
 
-asn1js@^3.0.1, asn1js@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/asn1js/-/asn1js-3.0.5.tgz"
-  integrity sha512-FVnvrKJwpt9LP2lAMl8qZswRNm3T4q9CON+bxldk2iwk3FFpuwhx2FfinyitizWHsVYyaY+y5JzDR0rCMV5yTQ==
-  dependencies:
-    pvtsutils "^1.3.2"
-    pvutils "^1.1.3"
-    tslib "^2.4.0"
-
 ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/ast-types-flow/-/ast-types-flow-0.0.7.tgz"
@@ -469,11 +692,11 @@ axe-core@^4.6.2:
   integrity sha512-/dlp0fxyM3R8YW7MFzaHWXrf4zzbr0vaYb23VBFCl83R7nWNPg/yaQw2Dc8jzCMmDVLhSdzH8MjrsuIUuvX+6g==
 
 axios@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.6.1.tgz"
-  integrity sha512-vfBmhDpKafglh0EldBEbVuoe7DyAavGSLWhuSm5ZSEKQnHhBf0xAAwybbNH1IkrJNGnS/VG4I5yxig1pCEXE4g==
+  version "1.7.7"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz"
+  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.6"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -494,6 +717,13 @@ binary-extensions@^2.0.0:
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
+bip39@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/bip39/-/bip39-3.1.0.tgz"
+  integrity sha512-c9kiwdk45Do5GL0vJMe7tS95VjCii65mYAH7DfWl3uW8AVzXKQVUm64i3hzVybBDMp9r7j9iNxR85+ul8MdN/A==
+  dependencies:
+    "@noble/hashes" "^1.2.0"
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz"
@@ -502,12 +732,12 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-braces@^3.0.2, braces@~3.0.2:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz"
-  integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
+braces@^3.0.3, braces@~3.0.2:
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz"
+  integrity sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==
   dependencies:
-    fill-range "^7.0.1"
+    fill-range "^7.1.1"
 
 browserslist@^4.21.10, "browserslist@>= 4.21.0":
   version "4.22.1"
@@ -549,6 +779,11 @@ caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001541, caniuse-lite@^1.0.300015
   version "1.0.30001593"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001593.tgz"
   integrity sha512-UWM1zlo3cZfkpBysd7AS+z+v007q9G1+fLTUU42rQnY6t2axoogPW/xol6T7juU5EUoOhML4WgBIdG+9yYqAjQ==
+
+cborg@^4.2.0:
+  version "4.2.3"
+  resolved "https://registry.npmjs.org/cborg/-/cborg-4.2.3.tgz"
+  integrity sha512-XBFbEJ6WMfn9L7woc2t+EzOxF8vGqddoopKBbrhIvZBt2WIUgSlT8xLmM6Aq1xv8eWt4yOSjwxWjYeuHU3CpJA==
 
 chalk@^4.0.0:
   version "4.1.2"
@@ -631,11 +866,6 @@ damerau-levenshtein@^1.0.8:
   resolved "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz"
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
 
-data-uri-to-buffer@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz"
-  integrity sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==
-
 debug@^3.2.7:
   version "3.2.7"
   resolved "https://registry.npmjs.org/debug/-/debug-3.2.7.tgz"
@@ -713,6 +943,11 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+effect@^3.1.2, effect@^3.1.3, effect@^3.5.6, effect@^3.5.7:
+  version "3.7.2"
+  resolved "https://registry.npmjs.org/effect/-/effect-3.7.2.tgz"
+  integrity sha512-pV7l1+LSZFvVObj4zuy4nYiBaC7qZOfrKV6s/Ef4p3KueiQwZFgamazklwyZ+x7Nyj2etRDFvHE/xkThTfQD1w==
 
 electron-to-chromium@^1.4.535:
   version "1.4.569"
@@ -1038,6 +1273,13 @@ esutils@^2.0.2:
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
+fast-check@^3.13.2, fast-check@^3.20.0:
+  version "3.22.0"
+  resolved "https://registry.npmjs.org/fast-check/-/fast-check-3.22.0.tgz"
+  integrity sha512-8HKz3qXqnHYp/VCNn2qfjHdAdcI8zcSqOyX64GOMukp7SL2bfzfeDKjSd+UyECtejccaZv3LcvZTm9YDD22iCQ==
+  dependencies:
+    pure-rand "^6.1.0"
+
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
@@ -1071,14 +1313,6 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-fetch-blob@^3.1.2, fetch-blob@^3.1.4:
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/fetch-blob/-/fetch-blob-3.2.0.tgz"
-  integrity sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==
-  dependencies:
-    node-domexception "^1.0.0"
-    web-streams-polyfill "^3.0.3"
-
 file-entry-cache@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-6.0.1.tgz"
@@ -1086,12 +1320,17 @@ file-entry-cache@^6.0.1:
   dependencies:
     flat-cache "^3.0.4"
 
-fill-range@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz"
-  integrity sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==
+fill-range@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz"
+  integrity sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==
   dependencies:
     to-regex-range "^5.0.1"
+
+find-my-way-ts@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/find-my-way-ts/-/find-my-way-ts-0.1.5.tgz"
+  integrity sha512-4GOTMrpGQVzsCH2ruUn2vmwzV/02zF4q+ybhCIrw/Rkt3L8KWcycdC6aJMctJzwN4fXD4SD5F/4B9Sksh5rE0A==
 
 find-up@^5.0.0:
   version "5.0.0"
@@ -1115,7 +1354,7 @@ flatted@^3.2.9:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.9.tgz"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-follow-redirects@^1.15.0:
+follow-redirects@^1.15.6:
   version "1.15.6"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.6.tgz"
   integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
@@ -1135,13 +1374,6 @@ form-data@^4.0.0:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
-
-formdata-polyfill@^4.0.10:
-  version "4.0.10"
-  resolved "https://registry.npmjs.org/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz"
-  integrity sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==
-  dependencies:
-    fetch-blob "^3.1.2"
 
 fraction.js@^4.3.6:
   version "4.3.7"
@@ -1688,26 +1920,17 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lucid-cardano@^0.10.7:
-  version "0.10.7"
-  resolved "https://registry.npmjs.org/lucid-cardano/-/lucid-cardano-0.10.7.tgz"
-  integrity sha512-hxJRMWj8VH+SGFqsVMG6T3LSRuxzwFbWOQ5DTGQQUyR/20FL7bjiVL+2ivMJF52tAbFKcwqpRD4fddR7LbqcAw==
-  dependencies:
-    "@peculiar/webcrypto" "^1.4.0"
-    node-fetch "^3.2.3"
-    ws "^8.10.0"
-
 merge2@^1.3.0, merge2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
 micromatch@^4.0.4, micromatch@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.5.tgz"
-  integrity sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==
+  version "4.0.8"
+  resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz"
+  integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
   dependencies:
-    braces "^3.0.2"
+    braces "^3.0.3"
     picomatch "^2.3.1"
 
 mime-db@1.52.0:
@@ -1743,6 +1966,11 @@ ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+
+multipasta@^0.2.2:
+  version "0.2.5"
+  resolved "https://registry.npmjs.org/multipasta/-/multipasta-0.2.5.tgz"
+  integrity sha512-c8eMDb1WwZcE02WVjHoOmUVk7fnKU/RmUcosHACglrWAuPQsEJv+E8430sXj6jNc1jHw0zrS16aCjQh4BcEb4A==
 
 mz@^2.7.0:
   version "2.7.0"
@@ -1785,20 +2013,6 @@ next@^14.1.1:
     "@next/swc-win32-arm64-msvc" "14.1.1"
     "@next/swc-win32-ia32-msvc" "14.1.1"
     "@next/swc-win32-x64-msvc" "14.1.1"
-
-node-domexception@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/node-domexception/-/node-domexception-1.0.0.tgz"
-  integrity sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==
-
-node-fetch@^3.2.3:
-  version "3.3.2"
-  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-3.3.2.tgz"
-  integrity sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==
-  dependencies:
-    data-uri-to-buffer "^4.0.0"
-    fetch-blob "^3.1.4"
-    formdata-polyfill "^4.0.10"
 
 node-releases@^2.0.13:
   version "2.0.13"
@@ -2052,17 +2266,10 @@ punycode@^2.1.0:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz"
   integrity sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==
 
-pvtsutils@^1.3.2, pvtsutils@^1.3.5:
-  version "1.3.5"
-  resolved "https://registry.npmjs.org/pvtsutils/-/pvtsutils-1.3.5.tgz"
-  integrity sha512-ARvb14YB9Nm2Xi6nBq1ZX6dAM0FsJnuk+31aUp4TrcZEdKUlSqOqsxJHUPJDNE3qiIp+iUPEIeR6Je/tgV7zsA==
-  dependencies:
-    tslib "^2.6.1"
-
-pvutils@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.npmjs.org/pvutils/-/pvutils-1.1.3.tgz"
-  integrity sha512-pMpnA0qRdFp32b1sJl1wOJNxZLQ2cbQx+k6tjNtZ8CpvVhNqEPRgivZ2WOUev2YMajecdH7ctUPDvEe87nariQ==
+pure-rand@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/pure-rand/-/pure-rand-6.1.0.tgz"
+  integrity sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==
 
 queue-microtask@^1.2.2:
   version "1.2.3"
@@ -2439,7 +2646,7 @@ tsconfig-paths@^3.14.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@^2.0.0, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.1, tslib@^2.6.2:
+tslib@^2.4.0:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
@@ -2535,22 +2742,6 @@ util-deprecate@^1.0.2:
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-web-streams-polyfill@^3.0.3:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz"
-  integrity sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
-
-webcrypto-core@^1.7.7:
-  version "1.7.7"
-  resolved "https://registry.npmjs.org/webcrypto-core/-/webcrypto-core-1.7.7.tgz"
-  integrity sha512-7FjigXNsBfopEj+5DV2nhNpfic2vumtjjgPmeDKk45z+MJwXKKfhPB7118Pfzrmh4jqOMST6Ch37iPAHoImg5g==
-  dependencies:
-    "@peculiar/asn1-schema" "^2.3.6"
-    "@peculiar/json-schema" "^1.1.12"
-    asn1js "^3.0.1"
-    pvtsutils "^1.3.2"
-    tslib "^2.4.0"
-
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz"
@@ -2612,11 +2803,6 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
-
-ws@^8.10.0:
-  version "8.14.2"
-  resolved "https://registry.npmjs.org/ws/-/ws-8.14.2.tgz"
-  integrity sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==
 
 yallist@^4.0.0:
   version "4.0.0"

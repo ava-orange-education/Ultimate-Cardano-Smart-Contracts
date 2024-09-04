@@ -18,8 +18,9 @@ import { getAddressDetails, validatorToAddress } from '@lucid-evolution/lucid';
 import { Constr, Data } from "@lucid-evolution/plutus";
 import { Value } from "@anastasia-labs/cardano-multiplatform-lib-browser";
 
+
 // Define the Cardano Network
-const network = "Preprod";
+const network = "Mainnet";
 const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
 
 if (!maestroAPIKey){
@@ -274,7 +275,7 @@ const Home: NextPage = (props: any) => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "Mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"

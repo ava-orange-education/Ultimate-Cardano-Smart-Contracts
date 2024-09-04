@@ -14,17 +14,21 @@ import WalletInfo from '../components/WalletInfo';
 import { WalletInfoDetails } from '../common/types';
 
 import { 
-  applyParamsToScript,
-  Maestro,
-  Constr,
-  Data,
-  fromText,
+  fromText, 
   Lucid,
   SpendingValidator,
-  toText } from "lucid-cardano"; 
+  toText, 
+  validatorToScriptHash } from "@lucid-evolution/lucid";
+import { Maestro } from "@lucid-evolution/provider";
+import { WalletApi } from "@lucid-evolution/core-types";
+import { Constr, Data } from "@lucid-evolution/plutus";
+import { 
+  applyParamsToScript, 
+  applyDoubleCborEncoding 
+} from "@lucid-evolution/utils";
 
 // Define the Cardano Network
-const network = "Preprod";
+const network = "Mainnet";
 const maestroAPIKey = process.env.NEXT_PUBLIC_MAESTRO_API_KEY as string;
 if (!maestroAPIKey) {
   throw console.error("NEXT_PUBLIC_MAESTRO_API_KEY not set");
@@ -32,7 +36,7 @@ if (!maestroAPIKey) {
 
 
 // Create lucid object and connect it to the maestro provider
-const lucid = await Lucid.new(
+const lucid = await Lucid(
   new Maestro({
     network: network,
     apiKey: maestroAPIKey,
@@ -75,7 +79,7 @@ const Home: NextPage = (props: any) => {
 
     const getWalletInfo = async (): Promise<WalletInfoDetails>  => {
 
-      const utxos = await lucid.wallet.getUtxos();
+      const utxos = await lucid?.wallet().getUtxos()!;
       let balance = [] as any;
       let index = 0;
       let lovelace = 0n;
@@ -98,7 +102,7 @@ const Home: NextPage = (props: any) => {
                           qty: lovelace,
                           index: 0});
         
-        const address = await lucid.wallet.address();
+        const address = await lucid?.wallet().address();
         const walletInfoDetails = new WalletInfoDetails(
             address,
             balance
@@ -109,7 +113,7 @@ const Home: NextPage = (props: any) => {
     const updateWalletInfo = async () => {
 
         if (walletAPI) {
-            lucid.selectWallet(walletAPI);
+          lucid.selectWallet.fromAPI(walletAPI as WalletApi);
             const _walletInfo = await getWalletInfo();
             setWalletInfo({
               balance : _walletInfo.balance as [],
@@ -134,10 +138,10 @@ const Home: NextPage = (props: any) => {
     
     return {
       type: "PlutusV2",
-      script: applyParamsToScript(validator.compiledCode, [
-                                  fromText(tokenName),
-                                  BigInt(qty),
-                                  outRef],)
+      script: applyParamsToScript( applyDoubleCborEncoding(validator.compiledCode), 
+                                  [ fromText(tokenName),
+                                    BigInt(qty),
+                                    outRef ]),
     };
   }
 
@@ -151,17 +155,17 @@ const Home: NextPage = (props: any) => {
     const name = (params[1] as string).trim();
     const description = (params[2] as string).trim();
     const image = (params[3] as string).trim();
-    const qty = (params[4] as number).trim();
+    const qty = (params[4] as number);
 
     if (!walletAPI) {
       throw console.error("walletAPI is not set");
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Select wallet UTXOs and use the first one
-      const utxos = await lucid?.wallet.getUtxos()!;
+      const utxos = await lucid?.wallet().getUtxos()!;
       const utxo = utxos[0];
 
       // Create the UTXO that must be spent as part of this tx
@@ -177,7 +181,7 @@ const Home: NextPage = (props: any) => {
       const mintRedeemer = Data.to(new Constr(0, []));
 
       // Dervie the minting policy id & asset name
-      const policyId = lucid.utils.validatorToScriptHash(validator);
+      const policyId = validatorToScriptHash(validator);
       const assetName = `${policyId}${fromText(name)}`;
 
       // Generate the metadata
@@ -190,19 +194,19 @@ const Home: NextPage = (props: any) => {
                                         utxo.outputIndex);
 
       const tx = await lucid
-        .newTx()
-        .collectFrom([utxo])
-        .attachMintingPolicy(validator)
-        .attachMetadata(721, metadata)
-        .mintAssets(
-          { [assetName]: BigInt(qty) },
-          mintRedeemer
-        )
-        .payToAddress(address, { [assetName]: BigInt(qty) })
-        .complete();
+      .newTx()
+      .collectFrom([utxo])
+      .attach.MintingPolicy(validator)
+      .attachMetadata(721, metadata)
+      .mintAssets(
+        { [assetName]: BigInt(qty) },
+        mintRedeemer
+      )
+      .pay.ToAddress(address, { [assetName]: BigInt(qty) })
+      .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
@@ -230,10 +234,10 @@ const Home: NextPage = (props: any) => {
     }
     setIsLoading(true);
     try {
-      lucid.selectWallet(walletAPI);
+      lucid.selectWallet.fromAPI(walletAPI as WalletApi);
 
       // Select wallet UTXOs and use the first one
-      const utxos = await lucid?.wallet.getUtxos()!;
+      const utxos = await lucid?.wallet().getUtxos()!;
       const utxo = utxos[0];
 
       // Get the Ticket metadata needed for the script parameters
@@ -260,7 +264,7 @@ const Home: NextPage = (props: any) => {
       const tx = await lucid
         .newTx()
         .collectFrom([utxo])
-        .attachMintingPolicy(validator)
+        .attach.MintingPolicy(validator)
         .mintAssets(
           { [assetName]: BigInt(-1 * qty) },
           mintRedeemer
@@ -268,7 +272,7 @@ const Home: NextPage = (props: any) => {
         .complete();
 
       // Sign the unsigned tx to get the witness
-      const signedTx = await tx.sign().complete();
+      const signedTx = await tx.sign.withWallet().complete();
 
       // Submit the signed tx
       const txHash = await signedTx.submit();
@@ -309,7 +313,7 @@ const Home: NextPage = (props: any) => {
             <p>
               TxId: &nbsp;&nbsp;
               <a
-                href={"https://"+network+".cexplorer.io/tx/" + tx.txId}
+                href={`https://${network === "Mainnet" ? "" : network + "."}cexplorer.io/tx/${tx.txId}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline text-xs"
