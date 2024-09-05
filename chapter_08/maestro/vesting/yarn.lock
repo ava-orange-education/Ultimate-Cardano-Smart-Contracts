@@ -12,11 +12,6 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@anastasia-labs/cardano-multiplatform-lib-browser@^5.3.1-7":
-  version "5.3.1"
-  resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-5.3.1.tgz"
-  integrity sha512-gzTtzOvWrQkAYzJwfks6Kpj7BSvAe+LHAcO2Cj7q7DhNz2FyhYJmXsvA3URVLGqO7Yi6VNH0yPdPX2824gxQnw==
-
 "@anastasia-labs/cardano-multiplatform-lib-browser@^6.0.1-2":
   version "6.0.1-2"
   resolved "https://registry.npmjs.org/@anastasia-labs/cardano-multiplatform-lib-browser/-/cardano-multiplatform-lib-browser-6.0.1-2.tgz"
@@ -261,10 +256,10 @@
   resolved "https://registry.npmjs.org/@lucid-evolution/crc8/-/crc8-0.1.8.tgz"
   integrity sha512-88+/S6n+sPgxYtG05rvbJDVb8MoFGzckkR3p26uGrzngYzlJGfxBWIzNhVwfI2mgINPo2C5lkZW3GYnfY0MjuA==
 
-"@lucid-evolution/lucid@^0.3.15":
-  version "0.3.22"
-  resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.22.tgz"
-  integrity sha512-Ath72gKq3IMX5/mkWWyWOLddqaMZi3c307Iyqj7fUx/1Wm/ePVpkRvF4l4QtmwWI/hzSAy36iIU34FZNaSf91w==
+"@lucid-evolution/lucid@^0.3.23":
+  version "0.3.23"
+  resolved "https://registry.npmjs.org/@lucid-evolution/lucid/-/lucid-0.3.23.tgz"
+  integrity sha512-EwWa5sJ/0RD7f3FCiVcEW7MuIt61todvuuo5abqL2WLkETvrDGUmHOL2h71idBDzm+qY1hkzhQBi2xY8yg5YjA==
   dependencies:
     "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
     "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
@@ -273,14 +268,14 @@
     "@lucid-evolution/core-types" "0.1.16"
     "@lucid-evolution/core-utils" "0.1.14"
     "@lucid-evolution/plutus" "0.1.22"
-    "@lucid-evolution/provider" "0.1.49"
+    "@lucid-evolution/provider" "0.1.50"
     "@lucid-evolution/sign_data" "0.1.19"
     "@lucid-evolution/uplc" "0.2.11"
     "@lucid-evolution/utils" "0.1.38"
     "@lucid-evolution/wallet" "0.1.43"
     effect "^3.5.6"
 
-"@lucid-evolution/plutus@^0.1.20", "@lucid-evolution/plutus@0.1.22":
+"@lucid-evolution/plutus@^0.1.22", "@lucid-evolution/plutus@0.1.22":
   version "0.1.22"
   resolved "https://registry.npmjs.org/@lucid-evolution/plutus/-/plutus-0.1.22.tgz"
   integrity sha512-8g9vm/4rv+v1i9lVGlWQZYqxDey4u+jdOoaGh7PSeztVkIAopmq32Id6qdCCKJvsss9/OantMrFouaptq66Q1Q==
@@ -291,10 +286,10 @@
     "@lucid-evolution/core-utils" "0.1.14"
     "@sinclair/typebox" "^0.32.28"
 
-"@lucid-evolution/provider@0.1.49":
-  version "0.1.49"
-  resolved "https://registry.npmjs.org/@lucid-evolution/provider/-/provider-0.1.49.tgz"
-  integrity sha512-GOCH4QWwAwyJohZqg8/vLDOjfJ+iHWcCp57h2Bv+HUitjWtnh1QlIg1xZPq+/FtZvE4HDF81O/0Qki6WiA/RAg==
+"@lucid-evolution/provider@0.1.50":
+  version "0.1.50"
+  resolved "https://registry.npmjs.org/@lucid-evolution/provider/-/provider-0.1.50.tgz"
+  integrity sha512-HMQE1UkNdgKQoSkvzJD2KUjmAQhwtaAX6dFnnVFIEZ/6pjQG/u9FVL/jwvVwk58Z5yWaIcZpNgj1bWK3b0lc5g==
   dependencies:
     "@anastasia-labs/cardano-multiplatform-lib-browser" "^6.0.1-2"
     "@anastasia-labs/cardano-multiplatform-lib-nodejs" "^6.0.1-2"
@@ -323,7 +318,7 @@
   resolved "https://registry.npmjs.org/@lucid-evolution/uplc/-/uplc-0.2.11.tgz"
   integrity sha512-c1ByCOEu15wxo48+GEm5wwI6LlFVYQdaTSZFKPvZfKGKDMRbpToYxbKJnSIinI21Z4DID/a0pKmKT8JDBodkhw==
 
-"@lucid-evolution/utils@^0.1.36", "@lucid-evolution/utils@0.1.38":
+"@lucid-evolution/utils@^0.1.38", "@lucid-evolution/utils@0.1.38":
   version "0.1.38"
   resolved "https://registry.npmjs.org/@lucid-evolution/utils/-/utils-0.1.38.tgz"
   integrity sha512-wZeOwK1sojbU3loMfL99qK4fdrbf8UGgu6EUzknNkFwwVsQYWdAFG3pfYJluHxJgX/zjXaZU6gC2e24sO5ivsQ==
@@ -760,9 +755,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001538, caniuse-lite@^1.0.30001541, caniuse-lite@^1.0.30001579:
-  version "1.0.30001591"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001591.tgz"
-  integrity sha512-PCzRMei/vXjJyL5mJtzNiUCKP59dm8Apqc3PH8gJkMnMXZGox93RbE76jHsmLwmIo6/3nsYIpJtx0O7u5PqFuQ==
+  version "1.0.30001657"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001657.tgz"
+  integrity sha512-DPbJAlP8/BAXy3IgiWmZKItubb3TYGP0WscQQlVGIfT4s/YlFYVuJgyOsQNP7rJRChx/qdMeLJQJP0Sgg2yjNA==
 
 cborg@^4.2.0:
   version "4.2.3"
