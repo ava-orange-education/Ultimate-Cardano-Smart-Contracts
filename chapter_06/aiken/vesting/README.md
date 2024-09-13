@@ -7,6 +7,11 @@ The following environment variables need to be set
 export NEXT_PUBLIC_BLOCKFROST_API="https://cardano-preprod.blockfrost.io/api/v0"
 export NEXT_PUBLIC_BLOCKFROST_KEY="our-blockfrost-api-key"
 ```
+## Aiken version
+To get a compatible version of Aiken, please install aiken using the following command
+```
+aikup install v1.0.26-alpha
+```
 
 First, run the development server:
 
