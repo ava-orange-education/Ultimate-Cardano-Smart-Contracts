@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Aiken version
+To get a compatible version of Aiken, please install aiken using the following command
+```
+aikup install v1.0.26-alpha
+```
+
 ## Getting Started
 
 The following environment variables need to be set:
