@@ -89,7 +89,7 @@ async function getNetworkParams(network: string) {
     } else if (network === "preprod") {
         networkParamsUrl = "http://localhost:3000/params/preprod.json";
     } else if (network === "mainnet") {
-        networkParamsUrl = "https://d1t0d7c2nekuk0.cloudfront.net/mainnet.json";
+        networkParamsUrl = "http://localhost:3000/params/mainnet.json";
     } else {
         alert("Network not set");
         throw console.error("getNetworkParams: network not set");
