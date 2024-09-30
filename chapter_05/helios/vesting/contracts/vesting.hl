@@ -19,7 +19,7 @@ enum Redeemer {
     }
 }
 
-// Add message constant as a contract paramater
+// Add message constant as a contract parameter
 const MESSAGE: String = "Hello World!"
 
 // Define the main validator function
@@ -30,7 +30,7 @@ func main(datum: Datum, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
     // Depending on the redeemer provided in the transaction, process accordingly.
     redeemer.switch {
         Cancel => {
-            // Tx must be singed by pkh in datum
+            // Tx must be signed by pkh in datum
             tx.is_signed_by(datum.owner) 
         },
         red: Claim => {
