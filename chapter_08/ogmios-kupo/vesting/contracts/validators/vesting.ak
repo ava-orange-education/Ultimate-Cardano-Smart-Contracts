@@ -10,14 +10,14 @@ const version: ByteArray = "v1.0.1"
 type Datum {
   owner: Hash<Blake2b_224, VerificationKey>,
 }
-/// The vesting contract can be either cancelled by the owner
-/// or claimed by the beneificiary
+/// The vesting contract can be either canceled by the owner
+/// or claimed by the beneficiary
 type Redeemer {
   Cancel
   Claim { msg: ByteArray }
 }
 
-// Add hard coded message constant 
+// Add hard-coded message constant 
 const message: ByteArray = "Hello World!"
 
 validator {
@@ -25,7 +25,7 @@ validator {
     trace string.from_bytearray(version)
     when redeemer is {
       Cancel ->
-        // Tx must be singed by pkh in datum
+        // Tx must be signed by pkh in datum
         list.has(context.transaction.extra_signatories, datum.owner)
       Claim { msg } ->
         // Redeemer must match the message to spend this UTXO

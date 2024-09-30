@@ -33,7 +33,7 @@ func main(_, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
     redeemer.switch {
         Transfer => {
             txOutputsContract : []TxOutput = tx.outputs_locked_by(vHash);
-            // Tx must be singed by the stake key
+            // Tx must be signed by the stake key
             tx.is_signed_by(STAKE_PKH).trace("HDV1: ") &&
             // Output to swap must have a beacon token
             (tx.outputs.get(0).value.get_policy(beaconMPH)
@@ -50,7 +50,7 @@ func main(_, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
         },
         Return => {
             txOutputsContract : []TxOutput = tx.outputs_locked_by(vHash);
-            // Tx must be singed by the stake key
+            // Tx must be signed by the stake key
             tx.is_signed_by(STAKE_PKH).trace("HDV5: ") &&
             // The transaction must be burning a beacon token
             (tx.minted.value.get_policy(beaconMPH)
@@ -64,7 +64,7 @@ func main(_, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
             (!checkTokensOut(tx.outputs.tail)).trace("HDV8: ")
         },
         Burn => {
-            // Tx must be singed by the stake key
+            // Tx must be signed by the stake key
             tx.is_signed_by(STAKE_PKH).trace("HDV9: ") &&
             // There must be only 1 change output and only contain Ada
             (!checkTokensOut(tx.outputs)).trace("HDV10: ") 

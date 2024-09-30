@@ -9,8 +9,8 @@ struct Datum {
 }
 
 /*
- The vesting contract can be either cancelled by the owner
- or claimed by the beneificiary
+ The vesting contract can be either canceled by the owner
+ or claimed by the beneficiary
  */
 enum Redeemer {
     Cancel

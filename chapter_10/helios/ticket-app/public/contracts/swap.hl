@@ -91,7 +91,7 @@ func main(datumIn: Datum, redeemer: Redeemer, ctx: ScriptContext) -> Bool {
             // Check that there is nothing sent back to swap adddress
             (txOutputsContract.length == 0).trace("SPV1.1: ") &&
 
-            // Check that the transaction is siged by the stake key who created it
+            // Check that the transaction is signed by the stake key who created it
             tx.is_signed_by(STAKE_PKH).trace("SPV1.2: ") &&
 
             // Check that the beacon token is burned
